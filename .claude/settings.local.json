@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv:*)",
+      "Bash(mkdir:*)",
+      "WebFetch(domain:sitamco.cl)",
+      "Bash(npm test)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
