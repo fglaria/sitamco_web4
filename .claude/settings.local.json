@@ -4,7 +4,8 @@
       "Bash(mv:*)",
       "Bash(mkdir:*)",
       "WebFetch(domain:sitamco.cl)",
-      "Bash(npm test)"
+      "Bash(npm test)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
