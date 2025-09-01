@@ -6,5 +6,8 @@ export const apiEndpoints = {
     VALIDATE: `${baseUrl}/auth/validate`,
     ME: `${baseUrl}/auth/me`,
     LOGOUT: `${baseUrl}/auth/logout`
+  },
+  USER: {
+    GET: `${baseUrl}/user/`,
   }
 }

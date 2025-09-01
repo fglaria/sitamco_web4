@@ -81,6 +81,49 @@ export const validateToken = async (token) => {
 }
 
 /**
+ * Fetch current user data from auth/me endpoint
+ * @param {string} token - Authentication token
+ * @returns {Promise<Object>} User data
+ */
+export const getUserData = async (token) => {
+  try {
+    const response = await fetch(apiEndpoints.AUTH.ME, {
+      method: 'GET',
+      headers: {
+        ...headers,
+        'Authorization': `Bearer ${token}`
+      },
+      signal: AbortSignal.timeout(timeout)
+    })
+
+    const data = await response.json()
+
+    if (!response.ok) {
+      throw new Error(data.message || `HTTP error! status: ${response.status}`)
+    }
+
+    return {
+      success: true,
+      data: data,
+      user: data.user || data
+    }
+  } catch (error) {
+    console.error('Get user data error:', error)
+    
+    if (error.name === 'TimeoutError') {
+      throw new Error('Request timeout. Please try again.')
+    }
+    
+    if (error.name === 'TypeError' && error.message.includes('fetch')) {
+      throw new Error('Unable to connect to server. Please check your connection.')
+    }
+    
+    throw new Error(error.message || 'Failed to fetch user data.')
+  }
+}
+
+
+/**
  * Logout user (if API endpoint exists)
  * @param {string} token - Authentication token
  * @returns {Promise<void>}
