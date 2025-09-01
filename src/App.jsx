@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import Login from './components/ui/Login'
-import Somos from './components/pages/Somos'
-import Contacto from './components/pages/Contacto'
-import Unete from './components/pages/Unete'
+import PublicSite from './components/pages/public/PublicSite'
+import MiSitamco from './components/pages/authenticated/MiSitamco'
 import { logoutUser } from './services/authService.js'
 import { authConfig } from './config.js'
 import './App.css'
@@ -19,7 +18,11 @@ function App() {
   useEffect(() => {
     // Check if user is authenticated on component mount
     const authStatus = localStorage.getItem(authConfig.authKey)
-    setIsAuthenticated(authStatus === 'true')
+    const isAuth = authStatus === 'true'
+    setIsAuthenticated(isAuth)
+    if (isAuth) {
+      setCurrentPage('dashboard')
+    }
   }, [])
 
   /**
@@ -52,6 +55,7 @@ function App() {
   const handleLogin = () => {
     setIsAuthenticated(true)
     setShowLoginModal(false)
+    setCurrentPage('dashboard')
   }
 
   /**
@@ -75,17 +79,13 @@ function App() {
     setShowLoginModal(false)
   }
 
-  // Render the appropriate page based on currentPage state
+  // Render the appropriate page based on authentication state
   const renderCurrentPage = () => {
-    switch (currentPage) {
-      case 'contacto':
-        return <Contacto onLogout={handleLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} onShowLogin={showLogin} />
-      case 'unete':
-        return <Unete onLogout={handleLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} onShowLogin={showLogin} />
-      case 'somos':
-      default:
-        return <Somos onLogout={handleLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} onShowLogin={showLogin} />
+    if (isAuthenticated && currentPage === 'dashboard') {
+      return <MiSitamco onLogout={handleLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} />
     }
+    
+    return <PublicSite onLogout={handleLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} onShowLogin={showLogin} />
   }
 
   // Always show main app content now

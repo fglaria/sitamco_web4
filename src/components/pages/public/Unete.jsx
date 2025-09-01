@@ -1,4 +1,4 @@
-import Menu from '../ui/Menu'
+import Menu from '../../ui/Menu'
 
 /**
  * Unete component that displays SITAMCO membership information and FAQ

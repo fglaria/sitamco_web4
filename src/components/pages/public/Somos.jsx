@@ -1,4 +1,4 @@
-import Menu from '../ui/Menu'
+import Menu from '../../ui/Menu'
 
 /**
  * Somos component that displays SITAMCO's history, leadership, and organization

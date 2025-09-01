@@ -1,0 +1,146 @@
+/* Dashboard Layout */
+.dashboard-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-container {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 56px); /* Adjust based on header height */
+}
+
+/* Left Sidebar - 30% */
+.dashboard-sidebar {
+  width: 30%;
+  background-color: #fafafa;
+  border-right: 1px solid #e0e0e0;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.dashboard-sidebar h4 {
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.dashboard-sidebar .nav-link {
+  color: #666;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 2px;
+  padding: 8px 12px;
+  text-decoration: none;
+  background: none;
+  width: 100%;
+  display: block;
+  transition: all 0.15s ease;
+  font-size: 0.9rem;
+}
+
+.dashboard-sidebar .nav-link:hover {
+  background-color: #f0f0f0;
+  color: #333;
+  text-decoration: none;
+}
+
+.dashboard-sidebar .nav-link.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.dashboard-sidebar .nav-link:focus {
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+/* Right Content Area - 70% */
+.dashboard-content-area {
+  width: 70%;
+  padding: 16px;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.dashboard-content h2 {
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.dashboard-content .welcome-content {
+  max-width: 800px;
+}
+
+.dashboard-content .welcome-content p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.dashboard-content .card {
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+  margin-bottom: 12px;
+}
+
+.dashboard-content .card-header {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 15px;
+}
+
+.dashboard-content .card-header h5 {
+  margin: 0;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.dashboard-content .card-body {
+  padding: 15px;
+}
+
+.dashboard-content .card-body p {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.dashboard-content .badge {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .dashboard-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .dashboard-content-area {
+    width: 100%;
+  }
+  
+  .dashboard-sidebar .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .dashboard-sidebar .nav-item {
+    flex: 0 0 auto;
+    margin: 0 5px;
+  }
+}

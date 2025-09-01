@@ -1,31 +1,32 @@
 /* SITAMCO Contacto Page Styles */
 
 .contact-info {
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 0.5rem;
-  padding: 2rem;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 1.25rem;
   height: fit-content;
 }
 
 .contact-info h2 {
   color: #007bff;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
 }
 
 .contact-info .lead {
   color: #666;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
 }
 
 .contact-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .contact-item:last-child {
