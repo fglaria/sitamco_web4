@@ -11,7 +11,7 @@ import './Menu.css'
  * @param {Function} props.onShowLogin - Callback function to show login modal
  * @returns {JSX.Element} SITAMCO navigation menu JSX element
  */
-function Menu({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin }) {
+function Menu({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin, isDashboard = false }) {
   return (
     <nav className="navbar sticky-top navbar-light navbar-expand-md bg-light justify-content-between">
       <div className="container-fluid">
@@ -25,36 +25,45 @@ function Menu({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin 
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <button onClick={() => navigateTo('somos')} className="navbar-brand btn btn-link p-0">
+          <button onClick={() => navigateTo(isDashboard ? 'dashboard' : 'somos')} className="navbar-brand btn btn-link p-0">
             <img src="/src/assets/images/logos/sitamco_sm.png" alt="SITAMCO" width="150" height="40" />
           </button>
         </div>
         <div className="navbar-collapse collapse" id="header-menu">
           <ul className="nav navbar-nav ml-auto">
-            <li className="nav-item">
-              <button 
-                className={`nav-link btn btn-link ${currentPage === 'somos' ? 'active' : ''}`} 
-                onClick={() => navigateTo('somos')}
-              >
-                SOMOS
-              </button>
-            </li>
-            <li className="nav-item">
-              <button 
-                className={`nav-link btn btn-link ${currentPage === 'unete' ? 'active' : ''}`} 
-                onClick={() => navigateTo('unete')}
-              >
-                ÚNETE
-              </button>
-            </li>
-            <li className="nav-item">
-              <button 
-                className={`nav-link btn btn-link ${currentPage === 'contacto' ? 'active' : ''}`} 
-                onClick={() => navigateTo('contacto')}
-              >
-                CONTACTO
-              </button>
-            </li>
+            {!isDashboard && (
+              <>
+                <li className="nav-item">
+                  <button 
+                    className={`nav-link btn btn-link ${currentPage === 'somos' ? 'active' : ''}`} 
+                    onClick={() => navigateTo('somos')}
+                  >
+                    SOMOS
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button 
+                    className={`nav-link btn btn-link ${currentPage === 'unete' ? 'active' : ''}`} 
+                    onClick={() => navigateTo('unete')}
+                  >
+                    ÚNETE
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button 
+                    className={`nav-link btn btn-link ${currentPage === 'contacto' ? 'active' : ''}`} 
+                    onClick={() => navigateTo('contacto')}
+                  >
+                    CONTACTO
+                  </button>
+                </li>
+              </>
+            )}
+            {isDashboard && (
+              <li className="nav-item">
+                <span className="nav-link text-primary font-weight-bold">Mi SITAMCO</span>
+              </li>
+            )}
             <li className="nav-item">
               {isAuthenticated ? (
                 <div className="dropdown">
