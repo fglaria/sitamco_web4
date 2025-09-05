@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Menu from '../../ui/Menu.jsx'
 import MisDatos from './shared/MisDatos.jsx'
 import MiContrasena from './shared/MiContrasena.jsx'
 import './MiSitamco.css'
@@ -34,15 +33,6 @@ function MiSitamco({ onLogout, navigateTo, currentPage, isAuthenticated }) {
 
   return (
     <div className="dashboard-layout">
-      {/* Header */}
-      <Menu 
-        onLogout={onLogout} 
-        navigateTo={navigateTo} 
-        currentPage={currentPage} 
-        isAuthenticated={isAuthenticated}
-        isDashboard={true}
-      />
-      
       {/* Main Dashboard Content */}
       <div className="dashboard-container">
         {/* Left Sidebar */}

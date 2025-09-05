@@ -1,51 +1,192 @@
+/* PrivateSite Component Styles */
+
 .private-site {
   min-height: 100vh;
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-bg-primary);
 }
 
-.private-site-top-menu {
-  background-color: var(--color-bg-card);
+/* Unified Header */
+.private-site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-bg-secondary);
   border-bottom: 1px solid var(--color-border-primary);
-  padding: 0 20px;
+  padding: 0.75rem 1.5rem;
+  box-shadow: var(--shadow-sm);
 }
 
-.private-site-top-menu .nav-tabs {
-  border-bottom: none;
-  margin-bottom: 0;
+.header-left {
+  flex: 0 0 auto;
 }
 
-.private-site-top-menu .nav-tabs .nav-item {
-  margin-bottom: 0;
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
-.private-site-top-menu .nav-tabs .nav-link {
-  border: none;
-  border-bottom: 3px solid transparent;
-  padding: 15px 20px;
-  color: var(--color-text-secondary);
+.header-right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Logo Button */
+.logo-button {
   background: none;
-  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.375rem;
+  transition: all 0.15s ease;
+}
+
+.logo-button:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+.logo-button img {
+  display: block;
+}
+
+/* Navigation Tabs */
+.nav-tabs-container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: var(--color-bg-tertiary);
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+
+.nav-tab {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  padding: 0.5rem 1rem;
   font-weight: 500;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+  border-radius: 0.375rem;
+  cursor: pointer;
 }
 
-.private-site-top-menu .nav-tabs .nav-link:hover {
-  color: var(--color-primary);
-  background-color: var(--color-bg-secondary);
-  border-bottom-color: var(--color-primary);
+.nav-tab:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-card);
 }
 
-.private-site-top-menu .nav-tabs .nav-link.active {
+.nav-tab.active {
   color: var(--color-primary);
   background-color: var(--color-bg-card);
-  border-bottom-color: var(--color-primary);
-  font-weight: 600;
+  box-shadow: var(--shadow-sm);
 }
 
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: none;
+  border: 1px solid var(--color-border-primary);
+  color: var(--color-text-primary);
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-primary);
+}
+
+/* User Menu Dropdown */
+.user-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  background-color: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-primary);
+  color: var(--color-text-primary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 0.75rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  border-color: var(--color-primary);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.25rem);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 0.375rem;
+  box-shadow: var(--shadow-lg);
+  min-width: 120px;
+  z-index: 1000;
+}
+
+.user-menu:hover .dropdown-menu,
+.dropdown-btn:focus + .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-primary);
+}
+
+.dropdown-item.logout-item:hover {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: var(--color-border-primary);
+  margin: 0.25rem 0;
+}
+
+/* Content Area */
 .private-site-content {
   /* Remove any default margins/padding since child components handle their own layout */
 }
 
+/* Loading State */
 .private-site-loading {
   display: flex;
   justify-content: center;
@@ -70,14 +211,46 @@
   margin-top: 1rem;
 }
 
-/* Responsive adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .private-site-top-menu {
-    padding: 0 10px;
+  .private-site-header {
+    padding: 0.5rem 1rem;
+    flex-direction: column;
+    gap: 1rem;
   }
   
-  .private-site-top-menu .nav-tabs .nav-link {
-    padding: 12px 15px;
-    font-size: 0.9rem;
+  .header-left, .header-center, .header-right {
+    flex: none;
+  }
+  
+  .nav-tabs-container {
+    gap: 0.125rem;
+    padding: 0.125rem;
+  }
+  
+  .nav-tab {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .logo-button img {
+    width: 100px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .private-site-header {
+    padding: 0.5rem;
+  }
+  
+  .nav-tabs-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav-tab {
+    width: 100%;
+    text-align: center;
   }
 }

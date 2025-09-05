@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Menu from '../../ui/Menu.jsx'
-import MisDatos from './shared/MisDatos.jsx'
-import MiContrasena from './shared/MiContrasena.jsx'
+import Miembros from './shared/Miembros.jsx'
+import Roles from './shared/Roles.jsx'
+import Permisos from './shared/Permisos.jsx'
 import './MiSitamco.css'
 
 /**
@@ -14,71 +14,23 @@ import './MiSitamco.css'
  * @returns {JSX.Element} Administracion JSX element
  */
 function Administracion({ onLogout, navigateTo, currentPage, isAuthenticated }) {
-  const [selectedSection, setSelectedSection] = useState('mis-datos')
+  const [selectedSection, setSelectedSection] = useState('miembros')
 
   const renderContent = () => {
     switch (selectedSection) {
-      case 'mis-datos':
-        return <MisDatos onLogout={onLogout} />
-      case 'mi-contraseña':
-        return <MiContrasena onLogout={onLogout} />
-      case 'usuarios':
-        return (
-          <div className="dashboard-content">
-            <h2>Gestión de Usuarios</h2>
-            <div className="welcome-content">
-              <p>Administra todos los usuarios del sistema.</p>
-            </div>
-          </div>
-        )
-      case 'sistema':
-        return (
-          <div className="dashboard-content">
-            <h2>Configuración del Sistema</h2>
-            <div className="welcome-content">
-              <p>Configura parámetros del sistema y administración.</p>
-            </div>
-          </div>
-        )
-      case 'auditoria':
-        return (
-          <div className="dashboard-content">
-            <h2>Auditoría del Sistema</h2>
-            <div className="welcome-content">
-              <p>Revisa logs y actividad del sistema.</p>
-            </div>
-          </div>
-        )
-      case 'reportes':
-        return (
-          <div className="dashboard-content">
-            <h2>Reportes Administrativos</h2>
-            <div className="welcome-content">
-              <p>Genera y visualiza reportes del sistema completo.</p>
-            </div>
-          </div>
-        )
+      case 'miembros':
+        return <Miembros onLogout={onLogout} />
+      case 'roles':
+        return <Roles onLogout={onLogout} />
+      case 'permisos':
+        return <Permisos onLogout={onLogout} />
       default:
-        return (
-          <div className="dashboard-content">
-            <h2>Administración</h2>
-            <p>Selecciona una opción del menú lateral.</p>
-          </div>
-        )
+        return <Miembros onLogout={onLogout} />
     }
   }
 
   return (
     <div className="dashboard-layout">
-      {/* Header */}
-      <Menu 
-        onLogout={onLogout} 
-        navigateTo={navigateTo} 
-        currentPage={currentPage} 
-        isAuthenticated={isAuthenticated}
-        isDashboard={true}
-      />
-      
       {/* Main Dashboard Content */}
       <div className="dashboard-container">
         {/* Left Sidebar */}
@@ -86,50 +38,26 @@ function Administracion({ onLogout, navigateTo, currentPage, isAuthenticated }) 
           <ul className="nav flex-column">
             <li className="nav-item">
               <button 
-                className={`nav-link btn btn-link text-left ${selectedSection === 'mis-datos' ? 'active' : ''}`}
-                onClick={() => setSelectedSection('mis-datos')}
+                className={`nav-link btn btn-link text-left ${selectedSection === 'miembros' ? 'active' : ''}`}
+                onClick={() => setSelectedSection('miembros')}
               >
-                Mis Datos
+                Miembros
               </button>
             </li>
             <li className="nav-item">
               <button 
-                className={`nav-link btn btn-link text-left ${selectedSection === 'mi-contraseña' ? 'active' : ''}`}
-                onClick={() => setSelectedSection('mi-contraseña')}
+                className={`nav-link btn btn-link text-left ${selectedSection === 'roles' ? 'active' : ''}`}
+                onClick={() => setSelectedSection('roles')}
               >
-                Mi Contraseña
+                Roles
               </button>
             </li>
             <li className="nav-item">
               <button 
-                className={`nav-link btn btn-link text-left ${selectedSection === 'usuarios' ? 'active' : ''}`}
-                onClick={() => setSelectedSection('usuarios')}
+                className={`nav-link btn btn-link text-left ${selectedSection === 'permisos' ? 'active' : ''}`}
+                onClick={() => setSelectedSection('permisos')}
               >
-                Gestión de Usuarios
-              </button>
-            </li>
-            <li className="nav-item">
-              <button 
-                className={`nav-link btn btn-link text-left ${selectedSection === 'sistema' ? 'active' : ''}`}
-                onClick={() => setSelectedSection('sistema')}
-              >
-                Configuración Sistema
-              </button>
-            </li>
-            <li className="nav-item">
-              <button 
-                className={`nav-link btn btn-link text-left ${selectedSection === 'auditoria' ? 'active' : ''}`}
-                onClick={() => setSelectedSection('auditoria')}
-              >
-                Auditoría
-              </button>
-            </li>
-            <li className="nav-item">
-              <button 
-                className={`nav-link btn btn-link text-left ${selectedSection === 'reportes' ? 'active' : ''}`}
-                onClick={() => setSelectedSection('reportes')}
-              >
-                Reportes Administrativos
+                Permisos
               </button>
             </li>
           </ul>

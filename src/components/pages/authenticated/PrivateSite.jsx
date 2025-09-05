@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getUserData } from '../../../services/authService.js'
 import { authConfig } from '../../../config.js'
+import { useTheme } from '../../providers/ThemeProvider.jsx'
 import MiSitamco from './MiSitamco.jsx'
 import Directiva from './Directiva.jsx'
 import Administracion from './Administracion.jsx'
@@ -19,6 +20,7 @@ function PrivateSite({ onLogout, navigateTo, currentPage, isAuthenticated }) {
   const [currentSection, setCurrentSection] = useState('mi-sitamco')
   const [userRole, setUserRole] = useState('member') // member, director, administrator
   const [loading, setLoading] = useState(true)
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const fetchUserRole = async () => {
@@ -60,12 +62,17 @@ function PrivateSite({ onLogout, navigateTo, currentPage, isAuthenticated }) {
 
   // Determine user role based on user data
   const determineUserRole = (userData) => {
-    // This is placeholder logic - adjust based on your actual role system
-    if (userData.role === 'administrator' || userData.is_admin) {
-      return 'administrator'
-    } else if (userData.role === 'director' || userData.is_director) {
-      return 'director'
+    // Check if roles is an array and contains the role names
+    if (userData.roles && Array.isArray(userData.roles)) {
+      if (userData.roles.includes('Administrator')) {
+        return 'administrator'
+      } else if (userData.roles.includes('Director')) {
+        return 'director'
+      } else if (userData.roles.includes('Member')) {
+        return 'member'
+      }
     }
+    // Fallback to default member role
     return 'member'
   }
 
@@ -83,37 +90,86 @@ function PrivateSite({ onLogout, navigateTo, currentPage, isAuthenticated }) {
 
   const renderTopMenu = () => {
     return (
-      <div className="private-site-top-menu">
-        <ul className="nav nav-tabs">
-          <li className="nav-item">
+      <div className="private-site-header">
+        <div className="header-left">
+          <button 
+            onClick={() => navigateTo('somos')} 
+            className="logo-button"
+          >
+            <img 
+              src={theme === 'dark' ? "/src/assets/images/logos/sitamco_sm_white.png" : "/src/assets/images/logos/sitamco_sm.png"} 
+              alt="SITAMCO" 
+              width="120" 
+              height="32" 
+            />
+          </button>
+        </div>
+
+        <div className="header-center">
+          <div className="nav-tabs-container">
             <button 
-              className={`nav-link ${currentSection === 'mi-sitamco' ? 'active' : ''}`}
+              className={`nav-tab ${currentSection === 'mi-sitamco' ? 'active' : ''}`}
               onClick={() => setCurrentSection('mi-sitamco')}
             >
               Mi Sitamco
             </button>
-          </li>
-          {(userRole === 'director' || userRole === 'administrator') && (
-            <li className="nav-item">
+            {(userRole === 'director' || userRole === 'administrator') && (
               <button 
-                className={`nav-link ${currentSection === 'directiva' ? 'active' : ''}`}
+                className={`nav-tab ${currentSection === 'directiva' ? 'active' : ''}`}
                 onClick={() => setCurrentSection('directiva')}
               >
                 Directiva
               </button>
-            </li>
-          )}
-          {userRole === 'administrator' && (
-            <li className="nav-item">
+            )}
+            {userRole === 'administrator' && (
               <button 
-                className={`nav-link ${currentSection === 'administracion' ? 'active' : ''}`}
+                className={`nav-tab ${currentSection === 'administracion' ? 'active' : ''}`}
                 onClick={() => setCurrentSection('administracion')}
               >
                 Administración
               </button>
-            </li>
-          )}
-        </ul>
+            )}
+          </div>
+        </div>
+
+        <div className="header-right">
+          <button 
+            onClick={toggleTheme}
+            className="theme-toggle-btn"
+            title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          >
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
+
+          <div className="user-menu">
+            <button 
+              className="dropdown-btn" 
+              type="button" 
+              id="userDropdown" 
+              data-toggle="dropdown" 
+              aria-haspopup="true" 
+              aria-expanded="false"
+            >
+              ▼
+            </button>
+            <div className="dropdown-menu" aria-labelledby="userDropdown">
+              <button 
+                className="dropdown-item" 
+                onClick={() => navigateTo('somos')}
+              >
+                Home
+              </button>
+              <div className="dropdown-divider"></div>
+              <button 
+                className="dropdown-item logout-item" 
+                onClick={onLogout}
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
