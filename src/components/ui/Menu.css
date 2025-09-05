@@ -2,10 +2,10 @@
 
 /* Compact navbar improvements */
 .navbar {
-  background-color: #fafafa !important;
-  border-bottom: 1px solid #e0e0e0;
+  background-color: var(--color-menu-bg) !important;
+  border-bottom: 1px solid var(--color-border-primary);
   padding: 0.5rem 1rem;
-  box-shadow: none;
+  box-shadow: var(--color-menu-shadow);
 }
 
 .navbar-brand.btn {
@@ -35,13 +35,13 @@
 
 /* Compact navigation links */
 .nav-link.btn.btn-link {
-  color: #666 !important;
+  color: var(--color-nav-link) !important;
   text-decoration: none !important;
   border: none !important;
   background: none !important;
   padding: 0.4rem 0.75rem !important;
   margin: 0 0.125rem;
-  border-radius: 3px !important;
+  border-radius: 0.375rem !important;
   font-weight: 500;
   font-size: 0.85rem;
   letter-spacing: 0.025em;
@@ -50,15 +50,15 @@
 }
 
 .nav-link.btn.btn-link:hover {
-  color: #333 !important;
-  background-color: #f0f0f0 !important;
+  color: var(--color-nav-link-hover) !important;
+  background-color: var(--color-nav-link-active-bg) !important;
   border: none !important;
   transform: none;
 }
 
 .nav-link.btn.btn-link.active {
-  color: #007bff !important;
-  background-color: rgba(0, 123, 255, 0.08) !important;
+  color: var(--color-nav-link-active) !important;
+  background-color: var(--color-nav-link-active-bg) !important;
   font-weight: 500 !important;
 }
 
@@ -70,34 +70,83 @@
   transform: translateX(-50%);
   width: 70%;
   height: 1px;
-  background-color: #007bff;
+  background-color: var(--color-nav-link-active);
 }
 
 .nav-link.btn.btn-link:focus {
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15) !important;
+  box-shadow: 0 0 0 2px var(--color-input-focus-shadow) !important;
 }
 
 /* Mobile toggle button */
 .navbar-toggler {
-  border: 1px solid #e0e0e0;
-  border-radius: 3px;
+  border: 1px solid var(--color-border-primary);
+  border-radius: 0.375rem;
   padding: 0.4rem 0.6rem;
+  background-color: var(--color-bg-primary);
 }
 
 .navbar-toggler:focus {
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+  box-shadow: 0 0 0 2px var(--color-input-focus-shadow);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Dropdown menu improvements */
 .navbar .dropdown-menu {
   margin-top: 0.25rem;
   min-width: 140px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-border-primary);
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-bg-card);
+}
+
+.navbar .dropdown-item {
+  color: var(--color-text-primary);
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.15s ease;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+.navbar .dropdown-item.text-danger {
+  color: var(--color-danger) !important;
+}
+
+.navbar .dropdown-item.text-danger:hover {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger) !important;
+}
+
+.navbar .dropdown-divider {
+  border-top: 1px solid var(--color-border-primary);
 }
 
 .navbar .dropdown-toggle::after {
   margin-left: 0.4rem;
+}
+
+/* Theme toggle styling */
+.nav-item .theme-toggle {
+  margin-left: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+/* Text color for authenticated section title */
+.nav-link.text-primary {
+  color: var(--color-primary) !important;
 }
 
 /* Responsive improvements */
@@ -109,12 +158,16 @@
   .navbar-nav {
     margin-top: 0.75rem;
     padding-top: 0.75rem;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--color-border-primary);
   }
   
   .nav-link.btn.btn-link {
     padding: 0.5rem 0.75rem !important;
     margin: 0.125rem 0;
     text-align: left;
+  }
+  
+  .nav-item .theme-toggle {
+    margin: 0.25rem 0;
   }
 }

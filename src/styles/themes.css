@@ -1,0 +1,206 @@
+/* Theme System - CSS Variables for Light and Dark Modes */
+
+/* Light Theme (default) */
+:root {
+  /* Primary Colors */
+  --color-primary: #007bff;
+  --color-primary-dark: #0056b3;
+  --color-primary-light: #66b3ff;
+  --color-primary-hover: #0062cc;
+
+  /* Background Colors */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #e9ecef;
+  --color-bg-card: #ffffff;
+  --color-bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Text Colors */
+  --color-text-primary: #212529;
+  --color-text-secondary: #6c757d;
+  --color-text-muted: #868e96;
+  --color-text-light: #ffffff;
+  --color-text-inverse: #ffffff;
+
+  /* Border Colors */
+  --color-border-primary: #dee2e6;
+  --color-border-secondary: #e9ecef;
+  --color-border-light: #f1f3f4;
+  --color-border-focus: #007bff;
+
+  /* Status Colors */
+  --color-success: #28a745;
+  --color-success-bg: #d4edda;
+  --color-success-border: #c3e6cb;
+  
+  --color-danger: #dc3545;
+  --color-danger-bg: #f8d7da;
+  --color-danger-border: #f5c6cb;
+  
+  --color-warning: #ffc107;
+  --color-warning-bg: #fff3cd;
+  --color-warning-border: #ffeaa7;
+  
+  --color-info: #17a2b8;
+  --color-info-bg: #d1ecf1;
+  --color-info-border: #bee5eb;
+
+  /* Sidebar/Navigation */
+  --color-sidebar-bg: #ffffff;
+  --color-sidebar-border: #dee2e6;
+  --color-nav-link: #6c757d;
+  --color-nav-link-hover: #007bff;
+  --color-nav-link-active: #007bff;
+  --color-nav-link-active-bg: #f8f9fa;
+
+  /* Form Elements */
+  --color-input-bg: #ffffff;
+  --color-input-border: #ced4da;
+  --color-input-focus-border: #007bff;
+  --color-input-focus-shadow: rgba(0, 123, 255, 0.25);
+  --color-input-placeholder: #6c757d;
+
+  /* Shadows */
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+  /* Loading/Spinner */
+  --color-spinner: #007bff;
+  
+  /* Menu Header */
+  --color-menu-bg: #ffffff;
+  --color-menu-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  /* Primary Colors */
+  --color-primary: #4dabf7;
+  --color-primary-dark: #339af0;
+  --color-primary-light: #74c0fc;
+  --color-primary-hover: #339af0;
+
+  /* Background Colors - 3 levels of dark gray */
+  --color-bg-primary: #121212;    /* Darkest - main background */
+  --color-bg-secondary: #1e1e1e;  /* Medium - secondary backgrounds */
+  --color-bg-tertiary: #2a2a2a;   /* Lightest - cards, modals */
+  --color-bg-card: #1e1e1e;
+  --color-bg-overlay: rgba(0, 0, 0, 0.8);
+
+  /* Text Colors */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #888888;
+  --color-text-light: #ffffff;
+  --color-text-inverse: #1a1a1a;
+
+  /* Border Colors */
+  --color-border-primary: #333333;
+  --color-border-secondary: #2a2a2a;
+  --color-border-light: #1e1e1e;
+  --color-border-focus: #4dabf7;
+
+  /* Status Colors */
+  --color-success: #37b24d;
+  --color-success-bg: #2b8a3e;
+  --color-success-border: #37b24d;
+  
+  --color-danger: #f03e3e;
+  --color-danger-bg: #c92a2a;
+  --color-danger-border: #f03e3e;
+  
+  --color-warning: #fd7e14;
+  --color-warning-bg: #e8590c;
+  --color-warning-border: #fd7e14;
+  
+  --color-info: #1dd1a1;
+  --color-info-bg: #0ca678;
+  --color-info-border: #1dd1a1;
+
+  /* Sidebar/Navigation */
+  --color-sidebar-bg: #1e1e1e;
+  --color-sidebar-border: #333333;
+  --color-nav-link: #b0b0b0;
+  --color-nav-link-hover: #4dabf7;
+  --color-nav-link-active: #4dabf7;
+  --color-nav-link-active-bg: #2a2a2a;
+
+  /* Form Elements */
+  --color-input-bg: #3a3a3a;
+  --color-input-border: #555555;
+  --color-input-focus-border: #4dabf7;
+  --color-input-focus-shadow: rgba(77, 171, 247, 0.25);
+  --color-input-placeholder: #888888;
+
+  /* Shadows */
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+
+  /* Loading/Spinner */
+  --color-spinner: #4dabf7;
+  
+  /* Menu Header */
+  --color-menu-bg: #2d2d2d;
+  --color-menu-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Badge Colors - lighter than card backgrounds */
+  --badge-info-bg: #3a4a5c;
+  --badge-info-color: #a6c8ff;
+  --badge-secondary-bg: #4a4a4a;
+  --badge-secondary-color: #e9ecef;
+  --badge-success-bg: #2a4a37;
+  --badge-success-color: #75d68f;
+  --badge-danger-bg: #5c2a2a;
+  --badge-danger-color: #ff9999;
+}
+
+/* Badge styling for dark theme */
+[data-theme="dark"] .badge-info {
+  background-color: var(--badge-info-bg) !important;
+  color: var(--badge-info-color) !important;
+}
+
+[data-theme="dark"] .badge-secondary {
+  background-color: var(--badge-secondary-bg) !important;
+  color: var(--badge-secondary-color) !important;
+}
+
+[data-theme="dark"] .badge-success {
+  background-color: var(--badge-success-bg) !important;
+  color: var(--badge-success-color) !important;
+}
+
+[data-theme="dark"] .badge-danger {
+  background-color: var(--badge-danger-bg) !important;
+  color: var(--badge-danger-color) !important;
+}
+
+/* Theme transition animations */
+* {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Disable transitions during theme switch to avoid flashing */
+.theme-switching * {
+  transition: none !important;
+}
+
+/* Print styles - always light theme */
+@media print {
+  :root {
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #ffffff;
+    --color-bg-tertiary: #ffffff;
+    --color-bg-card: #ffffff;
+    --color-text-primary: #000000;
+    --color-text-secondary: #333333;
+    --color-text-muted: #666666;
+    --color-border-primary: #000000;
+    --color-border-secondary: #333333;
+  }
+}

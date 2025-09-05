@@ -1,4 +1,5 @@
 
+import { useTheme } from '../providers/ThemeProvider.jsx'
 import './Menu.css'
 
 /**
@@ -12,6 +13,8 @@ import './Menu.css'
  * @returns {JSX.Element} SITAMCO navigation menu JSX element
  */
 function Menu({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin, isDashboard = false }) {
+  const { theme, toggleTheme } = useTheme()
+  
   return (
     <nav className="navbar sticky-top navbar-light navbar-expand-md bg-light justify-content-between">
       <div className="container-fluid">
@@ -26,7 +29,12 @@ function Menu({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin,
             <span className="navbar-toggler-icon"></span>
           </button>
           <button onClick={() => navigateTo(isDashboard ? 'dashboard' : 'somos')} className="navbar-brand btn btn-link p-0">
-            <img src="/src/assets/images/logos/sitamco_sm.png" alt="SITAMCO" width="150" height="40" />
+            <img 
+              src={theme === 'dark' ? "/src/assets/images/logos/sitamco_sm_white.png" : "/src/assets/images/logos/sitamco_sm.png"} 
+              alt="SITAMCO" 
+              width="150" 
+              height="40" 
+            />
           </button>
         </div>
         <div className="navbar-collapse collapse" id="header-menu">
@@ -64,6 +72,16 @@ function Menu({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin,
                 <span className="nav-link text-primary font-weight-bold">Mi SITAMCO</span>
               </li>
             )}
+            <li className="nav-item">
+              <button 
+                onClick={toggleTheme}
+                className="theme-toggle"
+                title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+                aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+              >
+                {theme === 'light' ? '🌙' : '☀️'}
+              </button>
+            </li>
             <li className="nav-item">
               {isAuthenticated ? (
                 <div className="dropdown">
