@@ -1,6 +1,6 @@
 /* Slim Login Modal Styles */
 .modal {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--color-bg-overlay);
 }
 
 .modal-dialog {
@@ -9,21 +9,22 @@
 }
 
 .modal-content {
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--color-border-primary);
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-lg);
+  background-color: var(--color-bg-card);
 }
 
 .modal-header {
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid #e0e0e0;
-  background-color: #fafafa;
+  border-bottom: 1px solid var(--color-border-primary);
+  background-color: var(--color-bg-secondary);
 }
 
 .modal-title {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #333;
+  color: var(--color-text-primary);
   margin: 0;
 }
 
@@ -32,21 +33,22 @@
   background: none;
   border: none;
   font-size: 1.25rem;
-  color: #666;
+  color: var(--color-text-secondary);
   cursor: pointer;
   transition: color 0.15s ease;
 }
 
 .close:hover {
-  color: #333;
+  color: var(--color-text-primary);
 }
 
 .modal-body {
   padding: 1.25rem;
+  background-color: var(--color-bg-card);
 }
 
 .text-muted {
-  color: #666;
+  color: var(--color-text-muted);
   font-size: 0.85rem;
   margin-bottom: 1rem;
 }
@@ -60,7 +62,7 @@
   margin-bottom: 0.4rem;
   font-weight: 500;
   font-size: 0.9rem;
-  color: #333;
+  color: var(--color-text-primary);
 }
 
 .form-control {
@@ -68,17 +70,17 @@
   padding: 0.5rem 0.75rem;
   font-size: 0.9rem;
   line-height: 1.4;
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 3px;
+  color: var(--color-text-primary);
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-input-border);
+  border-radius: 0.375rem;
   transition: border-color 0.15s ease;
 }
 
 .form-control:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+  border-color: var(--color-input-focus-border);
+  box-shadow: 0 0 0 2px var(--color-input-focus-shadow);
 }
 
 .btn-primary {
@@ -115,7 +117,7 @@
 }
 
 .text-muted a {
-  color: #007bff;
+  color: var(--color-primary);
   text-decoration: none;
   font-size: 0.85rem;
 }
@@ -133,8 +135,8 @@
 
 .alert-danger {
   color: #721c24;
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
+  background-color: var(--color-danger-bg);
+  border: 1px solid var(--color-danger-border);
 }
 
 /* Spinner */

@@ -1,6 +1,6 @@
-import Somos from './Somos'
-import Contacto from './Contacto'
-import Unete from './Unete'
+import Somos from './Somos.jsx'
+import Contacto from './Contacto.jsx'
+import Unete from './Unete.jsx'
 
 /**
  * PublicSite component that handles routing for unauthenticated users

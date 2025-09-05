@@ -1,22 +1,22 @@
 /* SITAMCO Contacto Page Styles */
 
 .contact-info {
-  background-color: #fafafa;
-  border: 1px solid #e0e0e0;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-primary);
   border-radius: 6px;
   padding: 1.25rem;
   height: fit-content;
 }
 
 .contact-info h2 {
-  color: #007bff;
+  color: var(--color-primary);
   font-size: 1.25rem;
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
 
 .contact-info .lead {
-  color: #666;
+  color: var(--color-text-secondary);
   margin-bottom: 1.25rem;
   font-size: 0.9rem;
 }
@@ -26,7 +26,7 @@
   align-items: flex-start;
   margin-bottom: 1.25rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--color-border-primary);
 }
 
 .contact-item:last-child {
@@ -38,7 +38,7 @@
 .contact-icon {
   width: 50px;
   height: 50px;
-  background-color: #007bff;
+  background-color: var(--color-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -111,8 +111,8 @@
 }
 
 .contact-form {
-  background-color: #fff;
-  border: 1px solid #dee2e6;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-primary);
   border-radius: 0.5rem;
   padding: 2rem;
 }
@@ -234,113 +234,4 @@ h1 {
   }
 }
 
-/* Dark theme support */
-@media (prefers-color-scheme: dark) {
-  .contact-info {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .contact-info h2 {
-    color: #61dafb;
-  }
-  
-  .contact-info .lead {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  .contact-item {
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .contact-icon {
-    background-color: #61dafb;
-  }
-  
-  .contact-details h4 {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .contact-details p {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  .contact-details a {
-    color: #61dafb;
-  }
-  
-  .contact-details a:hover {
-    color: #21b6d9;
-  }
-  
-  .social-media h4 {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .social-link {
-    color: #61dafb;
-  }
-  
-  .social-link:hover {
-    background-color: rgba(97, 218, 251, 0.1);
-    color: #21b6d9;
-  }
-  
-  .contact-form {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .contact-form h2 {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .form-label {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .form-control, .form-select {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.87);
-  }
-  
-  .form-control:focus, .form-select:focus {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: #61dafb;
-    box-shadow: 0 0 0 0.2rem rgba(97, 218, 251, 0.25);
-    color: rgba(255, 255, 255, 0.87);
-  }
-  
-  .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .text-muted {
-    color: rgba(255, 255, 255, 0.6) !important;
-  }
-  
-  h1 {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .alert-success {
-    background-color: rgba(40, 167, 69, 0.1);
-    border-color: rgba(40, 167, 69, 0.3);
-    color: #4fd65a;
-  }
-  
-  .alert-info {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-left-color: #61dafb;
-    color: rgba(255, 255, 255, 0.87);
-  }
-  
-  .alert-info h5 {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .alert-info p {
-    color: rgba(255, 255, 255, 0.7);
-  }
-}
+/* Updated to use theme variables instead of media queries */

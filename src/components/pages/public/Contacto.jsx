@@ -1,4 +1,4 @@
-import Menu from '../../ui/Menu'
+import Menu from '../../ui/Menu.jsx'
 
 /**
  * Contacto component that displays SITAMCO contact information
