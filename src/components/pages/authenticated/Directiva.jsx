@@ -5,15 +5,15 @@ import MiContrasena from './shared/MiContrasena.jsx'
 import './MiSitamco.css'
 
 /**
- * MiSitamco component for authenticated users
+ * Directiva component for director users
  * @param {Object} props - Component props
  * @param {Function} props.onLogout - Logout handler
  * @param {Function} props.navigateTo - Navigation handler
  * @param {string} props.currentPage - Current active page
  * @param {boolean} props.isAuthenticated - Authentication status
- * @returns {JSX.Element} MiSitamco JSX element
+ * @returns {JSX.Element} Directiva JSX element
  */
-function MiSitamco({ onLogout, navigateTo, currentPage, isAuthenticated }) {
+function Directiva({ onLogout, navigateTo, currentPage, isAuthenticated }) {
   const [selectedSection, setSelectedSection] = useState('mis-datos')
 
   const renderContent = () => {
@@ -22,10 +22,28 @@ function MiSitamco({ onLogout, navigateTo, currentPage, isAuthenticated }) {
         return <MisDatos onLogout={onLogout} />
       case 'mi-contraseña':
         return <MiContrasena onLogout={onLogout} />
+      case 'miembros':
+        return (
+          <div className="dashboard-content">
+            <h2>Gestión de Miembros</h2>
+            <div className="welcome-content">
+              <p>Administra los miembros del sindicato.</p>
+            </div>
+          </div>
+        )
+      case 'reportes':
+        return (
+          <div className="dashboard-content">
+            <h2>Reportes Directiva</h2>
+            <div className="welcome-content">
+              <p>Visualiza reportes y estadísticas de la directiva.</p>
+            </div>
+          </div>
+        )
       default:
         return (
           <div className="dashboard-content">
-            <h2>Mi SITAMCO</h2>
+            <h2>Directiva</h2>
             <p>Selecciona una opción del menú lateral.</p>
           </div>
         )
@@ -64,6 +82,22 @@ function MiSitamco({ onLogout, navigateTo, currentPage, isAuthenticated }) {
                 Mi Contraseña
               </button>
             </li>
+            <li className="nav-item">
+              <button 
+                className={`nav-link btn btn-link text-left ${selectedSection === 'miembros' ? 'active' : ''}`}
+                onClick={() => setSelectedSection('miembros')}
+              >
+                Gestión de Miembros
+              </button>
+            </li>
+            <li className="nav-item">
+              <button 
+                className={`nav-link btn btn-link text-left ${selectedSection === 'reportes' ? 'active' : ''}`}
+                onClick={() => setSelectedSection('reportes')}
+              >
+                Reportes Directiva
+              </button>
+            </li>
           </ul>
         </div>
         
@@ -76,4 +110,4 @@ function MiSitamco({ onLogout, navigateTo, currentPage, isAuthenticated }) {
   )
 }
 
-export default MiSitamco
+export default Directiva

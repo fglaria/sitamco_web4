@@ -3,6 +3,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--color-bg-primary);
 }
 
 .dashboard-container {
@@ -14,23 +15,23 @@
 /* Left Sidebar - 30% */
 .dashboard-sidebar {
   width: 30%;
-  background-color: #fafafa;
-  border-right: 1px solid #e0e0e0;
+  background-color: var(--color-sidebar-bg);
+  border-right: 1px solid var(--color-sidebar-border);
   padding: 16px;
   overflow-y: auto;
 }
 
 .dashboard-sidebar h4 {
-  color: #333;
+  color: var(--color-text-primary);
   margin-bottom: 12px;
   font-weight: 500;
   font-size: 1.1rem;
 }
 
 .dashboard-sidebar .nav-link {
-  color: #666;
+  color: var(--color-nav-link);
   border: none;
-  border-radius: 3px;
+  border-radius: 0.375rem;
   margin-bottom: 2px;
   padding: 8px 12px;
   text-decoration: none;
@@ -42,18 +43,18 @@
 }
 
 .dashboard-sidebar .nav-link:hover {
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: var(--color-nav-link-active-bg);
+  color: var(--color-nav-link-hover);
   text-decoration: none;
 }
 
 .dashboard-sidebar .nav-link.active {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
 }
 
 .dashboard-sidebar .nav-link:focus {
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  box-shadow: 0 0 0 2px var(--color-input-focus-shadow);
   outline: none;
 }
 
@@ -62,11 +63,11 @@
   width: 70%;
   padding: 16px;
   overflow-y: auto;
-  background-color: #fff;
+  background-color: var(--color-bg-primary);
 }
 
 .dashboard-content h2 {
-  color: #333;
+  color: var(--color-text-primary);
   margin-bottom: 12px;
   font-weight: 500;
   font-size: 1.5rem;
@@ -78,37 +79,41 @@
 
 .dashboard-content .welcome-content p {
   font-size: 0.9rem;
-  color: #666;
+  color: var(--color-text-secondary);
   margin-bottom: 16px;
 }
 
 .dashboard-content .card {
-  border: 1px solid #e0e0e0;
-  box-shadow: none;
+  border: 1px solid var(--color-border-primary);
+  box-shadow: var(--shadow-sm);
   margin-bottom: 12px;
+  background-color: var(--color-bg-card);
 }
 
 .dashboard-content .card-header {
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #e0e0e0;
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-primary);
   padding: 10px 15px;
 }
 
 .dashboard-content .card-header h5 {
   margin: 0;
-  color: #333;
+  color: var(--color-text-primary);
   font-size: 0.95rem;
   font-weight: 500;
 }
 
 .dashboard-content .card-body {
   padding: 15px;
+  background-color: var(--color-bg-card);
+  color: var(--color-text-primary);
 }
 
 .dashboard-content .card-body p {
   margin-bottom: 6px;
   font-size: 0.9rem;
   line-height: 1.4;
+  color: var(--color-text-primary);
 }
 
 .dashboard-content .badge {
@@ -126,7 +131,7 @@
   .dashboard-sidebar {
     width: 100%;
     border-right: none;
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid var(--color-border-primary);
   }
   
   .dashboard-content-area {

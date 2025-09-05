@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
-import { getUserData } from '../../../services/authService'
-import { authConfig } from '../../../config'
+import { getUserData } from '../../../../services/authService.js'
+import { authConfig } from '../../../../config.js'
 
 /**
  * MisDatos component that displays user personal information and membership status
+ * @param {Object} props - Component props
+ * @param {Function} props.onLogout - Logout handler for 401 errors
  * @returns {JSX.Element} MisDatos JSX element
  */
-function MisDatos() {
+function MisDatos({ onLogout }) {
   const [userData, setUserData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -31,6 +33,11 @@ function MisDatos() {
           setError('Unable to get user information')
         }
       } catch (err) {
+        // Check for 401 error and redirect to public site
+        if (err.message && (err.message.includes('401') || err.message.includes('Unauthorized'))) {
+          onLogout()
+          return
+        }
         setError(err.message)
       } finally {
         setLoading(false)
@@ -38,7 +45,7 @@ function MisDatos() {
     }
 
     fetchUserData()
-  }, [])
+  }, [onLogout])
 
   return (
     <div className="dashboard-content">
@@ -66,13 +73,15 @@ function MisDatos() {
                 ) : userData ? (
                   <div>
                     <p><strong>ID:</strong> {userData.id}</p>
-                    <p><strong>Nombre:</strong> {userData.first_name} {userData.middle_name} {userData.last_name1} {userData.last_name2}</p>
+                    <p><strong>Nombre completo:</strong> {userData.first_name} {userData.middle_name} {userData.last_name1} {userData.last_name2}</p>
                     <p><strong>Email:</strong> {userData.email}</p>
                     <p><strong>RUN:</strong> {userData.run}</p>
                     <p><strong>Teléfono:</strong> {userData.phone}</p>
                     <p><strong>Dirección:</strong> {userData.address}</p>
                     <p><strong>Comuna:</strong> {userData.commune}</p>
-                    <p><strong>Fecha de ingreso:</strong> {userData.signed_at}</p>
+                    <p><strong>Fecha de ingreso:</strong> {new Date(userData.signed_at).toLocaleDateString()}</p>
+                    <p><strong>Fecha de nacimiento:</strong> {userData.birthday || 'No especificada'}</p>
+                    <p><strong>Creado:</strong> {new Date(userData.created_at).toLocaleDateString()}</p>
                   </div>
                 ) : (
                   <p>No se pudieron cargar los datos del usuario</p>
@@ -90,11 +99,16 @@ function MisDatos() {
                   <p>Cargando estado...</p>
                 ) : userData ? (
                   <div>
-                    <p>Estado de la cuenta: <strong>{userData.status}</strong></p>
-                    <span className={`badge ${userData.active ? 'badge-success' : 'badge-danger'}`}>
-                      {userData.active ? 'Activo' : 'Inactivo'}
-                    </span>
-                    <p className="mt-2">Miembro desde: {userData.signed_at}</p>
+                    <p><strong>Estado:</strong> <span className={`badge ${userData.status === 'CREATED' ? 'badge-info' : 'badge-secondary'}`}>{userData.status}</span></p>
+                    <p><strong>Estado activo:</strong> 
+                      <span className={`badge ms-2 ${userData.active ? 'badge-success' : 'badge-danger'}`}>
+                        {userData.active ? 'Activo' : 'Inactivo'}
+                      </span>
+                    </p>
+                    <p><strong>Miembro desde:</strong> {new Date(userData.signed_at).toLocaleDateString()}</p>
+                    {userData.modified_at && (
+                      <p><strong>Última modificación:</strong> {new Date(userData.modified_at).toLocaleDateString()}</p>
+                    )}
                   </div>
                 ) : (
                   <div>

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import Login from './components/ui/Login'
-import PublicSite from './components/pages/public/PublicSite'
-import MiSitamco from './components/pages/authenticated/MiSitamco'
+import Login from './components/ui/Login.jsx'
+import PublicSite from './components/pages/public/PublicSite.jsx'
+import PrivateSite from './components/pages/authenticated/PrivateSite.jsx'
+import { ThemeProvider } from './components/providers/ThemeProvider.jsx'
 import { logoutUser } from './services/authService.js'
 import { authConfig } from './config.js'
 import './App.css'
@@ -82,7 +83,7 @@ function App() {
   // Render the appropriate page based on authentication state
   const renderCurrentPage = () => {
     if (isAuthenticated && currentPage === 'dashboard') {
-      return <MiSitamco onLogout={handleLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} />
+      return <PrivateSite onLogout={handleLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} />
     }
     
     return <PublicSite onLogout={handleLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} onShowLogin={showLogin} />
@@ -90,10 +91,10 @@ function App() {
 
   // Always show main app content now
   return (
-    <>
+    <ThemeProvider>
       {renderCurrentPage()}
       {showLoginModal && <Login onLogin={handleLogin} onClose={hideLogin} />}
-    </>
+    </ThemeProvider>
   )
 }
 
