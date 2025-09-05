@@ -23,7 +23,7 @@
 }
 
 .accordion .btn-link:hover {
-  color: #007bff;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -34,16 +34,19 @@
 .accordion .card-body {
   padding: 1rem;
   line-height: 1.4;
+  background-color: var(--color-bg-card);
+  color: var(--color-text-primary);
 }
 
 .accordion .card-body p {
   margin-bottom: 0.75rem;
   text-align: justify;
   font-size: 0.9rem;
+  color: var(--color-text-primary);
 }
 
 .accordion .card-body h3 {
-  color: #007bff;
+  color: var(--color-primary);
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
@@ -51,10 +54,11 @@
 
 /* List group customizations */
 .list-group-item {
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--color-border-primary);
   padding: 0.5rem 0.75rem;
-  background-color: #fff;
+  background-color: var(--color-bg-card);
   font-size: 0.9rem;
+  color: var(--color-text-primary);
 }
 
 .list-group-item:first-child {
@@ -68,19 +72,19 @@
 }
 
 .list-group-item a {
-  color: #007bff;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
 .list-group-item a:hover {
-  color: #0056b3;
+  color: var(--color-primary-hover);
   text-decoration: underline;
 }
 
 /* Page title */
 .text-center h1 {
   margin-bottom: 1.5rem;
-  color: #333;
+  color: var(--color-text-primary);
   font-weight: 500;
   font-size: 1.75rem;
 }
@@ -105,49 +109,4 @@
   }
 }
 
-/* Dark theme support */
-@media (prefers-color-scheme: dark) {
-  .text-center h1 {
-    color: rgba(255, 255, 255, 0.87);
-  }
-  
-  .accordion .card {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .accordion .card-header {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .accordion .btn-link {
-    color: rgba(255, 255, 255, 0.87);
-  }
-  
-  .accordion .btn-link:hover {
-    color: #61dafb;
-  }
-  
-  .accordion .card-body {
-    color: rgba(255, 255, 255, 0.87);
-  }
-  
-  .accordion .card-body h3 {
-    color: #61dafb;
-  }
-  
-  .list-group-item {
-    background-color: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.87);
-  }
-  
-  .list-group-item a {
-    color: #61dafb;
-  }
-  
-  .list-group-item a:hover {
-    color: #21b6d9;
-  }
-}
+/* Dark theme support via CSS variables - see src/styles/themes.css */

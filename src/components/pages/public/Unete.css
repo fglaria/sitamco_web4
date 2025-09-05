@@ -1,29 +1,29 @@
 /* SITAMCO Unete Page Styles */
 
 .membership-info {
-  background-color: #fafafa;
-  border: 1px solid #e0e0e0;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-primary);
   border-radius: 6px;
   padding: 1.25rem;
   margin-bottom: 1.5rem;
 }
 
 .membership-info h2 {
-  color: #007bff;
+  color: var(--color-primary);
   font-size: 1.25rem;
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
 
 .membership-info h3 {
-  color: #333;
+  color: var(--color-text-primary);
   font-size: 1rem;
   font-weight: 500;
   margin: 1rem 0 0.75rem 0;
 }
 
 .membership-info p {
-  color: #666;
+  color: var(--color-text-secondary);
   line-height: 1.4;
   margin-bottom: 0.75rem;
   font-size: 0.9rem;
@@ -35,7 +35,7 @@
 }
 
 .requirements-list li {
-  color: #555;
+  color: var(--color-text-secondary);
   padding: 0.5rem 0;
   position: relative;
   padding-left: 1.5rem;
@@ -43,21 +43,21 @@
 
 .requirements-list li:before {
   content: "✓";
-  color: #28a745;
+  color: var(--color-success);
   font-weight: bold;
   position: absolute;
   left: 0;
 }
 
 .membership-form {
-  background-color: #fff;
-  border: 1px solid #dee2e6;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-primary);
   border-radius: 0.5rem;
   padding: 2rem;
 }
 
 .membership-form h2 {
-  color: #333;
+  color: var(--color-text-primary);
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -65,26 +65,28 @@
 
 .form-label {
   font-weight: 500;
-  color: #333;
+  color: var(--color-text-primary);
   margin-bottom: 0.5rem;
 }
 
 .form-control, .form-select {
-  border: 1px solid #ced4da;
+  border: 1px solid var(--color-input-border);
   border-radius: 0.375rem;
   padding: 0.75rem 1rem;
   font-size: 1rem;
+  background-color: var(--color-input-bg);
+  color: var(--color-text-primary);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .form-control:focus, .form-select:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  border-color: var(--color-input-focus-border);
+  box-shadow: 0 0 0 0.2rem var(--color-input-focus-shadow);
 }
 
 .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
   padding: 0.75rem 2rem;
   font-weight: 500;
   border-radius: 0.5rem;
@@ -92,8 +94,8 @@
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
   transform: translateY(-1px);
 }
 
@@ -110,32 +112,33 @@
 
 /* Page title */
 h1 {
-  color: #333;
+  color: var(--color-text-primary);
   font-weight: 700;
   margin-bottom: 3rem;
 }
 
 /* Alert styling */
 .alert-success {
-  border-left: 4px solid #28a745;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
+  border-left: 4px solid var(--color-success);
+  background-color: var(--color-success-bg);
+  border-color: var(--color-success-border);
   color: #155724;
 }
 
 .alert-info {
-  border-left: 4px solid #007bff;
-  background-color: #f8f9fa;
+  border-left: 4px solid var(--color-primary);
+  background-color: var(--color-info-bg);
+  border-color: var(--color-info-border);
 }
 
 .alert-info h5 {
-  color: #333;
+  color: var(--color-text-primary);
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
 
 .alert-info p {
-  color: #666;
+  color: var(--color-text-secondary);
   margin-bottom: 0.25rem;
 }
 
@@ -160,84 +163,4 @@ h1 {
   }
 }
 
-/* Dark theme support */
-@media (prefers-color-scheme: dark) {
-  .membership-info {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .membership-info h2 {
-    color: #61dafb;
-  }
-  
-  .membership-info h3 {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .membership-info p {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  .requirements-list li {
-    color: rgba(255, 255, 255, 0.8);
-  }
-  
-  .membership-form {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .membership-form h2 {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .form-label {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .form-control, .form-select {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.87);
-  }
-  
-  .form-control:focus, .form-select:focus {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: #61dafb;
-    box-shadow: 0 0 0 0.2rem rgba(97, 218, 251, 0.25);
-    color: rgba(255, 255, 255, 0.87);
-  }
-  
-  .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .text-muted {
-    color: rgba(255, 255, 255, 0.6) !important;
-  }
-  
-  h1 {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .alert-success {
-    background-color: rgba(40, 167, 69, 0.1);
-    border-color: rgba(40, 167, 69, 0.3);
-    color: #4fd65a;
-  }
-  
-  .alert-info {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-left-color: #61dafb;
-    color: rgba(255, 255, 255, 0.87);
-  }
-  
-  .alert-info h5 {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .alert-info p {
-    color: rgba(255, 255, 255, 0.7);
-  }
-}
+/* Dark theme support via CSS variables - see src/styles/themes.css */

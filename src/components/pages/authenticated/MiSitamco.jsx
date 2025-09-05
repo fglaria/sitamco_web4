@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import MisDatos from './shared/MisDatos.jsx'
-import MiContrasena from './shared/MiContrasena.jsx'
+import MisDatos from './member/MisDatos.jsx'
+import MiContrasena from './member/MiContrasena.jsx'
 import './MiSitamco.css'
 
 /**

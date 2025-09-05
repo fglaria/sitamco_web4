@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Miembros from './shared/Miembros.jsx'
-import Roles from './shared/Roles.jsx'
-import Permisos from './shared/Permisos.jsx'
+import Miembros from './administrator/Miembros.jsx'
+import Roles from './administrator/Roles.jsx'
+import Permisos from './administrator/Permisos.jsx'
 import './MiSitamco.css'
 
 /**
