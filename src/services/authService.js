@@ -124,6 +124,55 @@ export const getUserData = async (token) => {
 
 
 /**
+ * Change user password
+ * @param {string} token - Authentication token
+ * @param {string} currentPassword - Current password
+ * @param {string} newPassword - New password
+ * @returns {Promise<Object>} Change password response
+ */
+export const changePassword = async (token, currentPassword, newPassword) => {
+  try {
+    const response = await fetch(apiEndpoints.AUTH.CHANGE_PASSWORD, {
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        'current': currentPassword,
+        'new': newPassword
+      }),
+      signal: AbortSignal.timeout(timeout)
+    })
+
+    const data = await response.json()
+
+    if (!response.ok) {
+      throw new Error(data.message || `HTTP error! status: ${response.status}`)
+    }
+
+    return {
+      success: true,
+      message: data.message || 'Password changed successfully'
+    }
+  } catch (error) {
+    if (error.name === 'TimeoutError') {
+      let message = 'Request timeout. Please try again.'
+      message = isDevelopment ? `${message} (${error})` : message
+      throw new Error(message)
+    }
+    
+    if (error.name === 'TypeError' && error.message.includes('fetch')) {
+      let message = 'Unable to connect to server. Please check your connection.'
+      message = isDevelopment ? `${message} (${error})` : message
+      throw new Error(message)
+    }
+    
+    throw error || new Error('Failed to change password. Please try again.')
+  }
+}
+
+/**
  * Logout user (if API endpoint exists)
  * @param {string} token - Authentication token
  * @returns {Promise<void>}
