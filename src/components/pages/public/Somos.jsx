@@ -1,4 +1,5 @@
 import Menu from '../../ui/Menu.jsx'
+import { useTheme } from '../../../contexts/ThemeContext.jsx'
 
 /**
  * Somos component that displays SITAMCO's history, leadership, and organization
@@ -11,8 +12,10 @@ import Menu from '../../ui/Menu.jsx'
  * @returns {JSX.Element} SITAMCO Somos page JSX element
  */
 function Somos({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin }) {
+  const { theme } = useTheme()
+  
   return (
-    <div className="d-flex flex-column sticky-footer-wrapper min-vh-100">
+    <div className="d-flex flex-column sticky-footer-wrapper min-vh-100 bg-body text-body">
       {/* Navigation */}
       <Menu onLogout={onLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} onShowLogin={onShowLogin} />
 
@@ -37,8 +40,8 @@ function Somos({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
                     <button 
                       className="btn btn-link" 
                       type="button" 
-                      data-toggle="collapse" 
-                      data-target="#collapseOne" 
+                      data-bs-toggle="collapse" 
+                      data-bs-target="#collapseOne" 
                       aria-expanded="true" 
                       aria-controls="collapseOne"
                     >
@@ -63,8 +66,8 @@ function Somos({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
                     <button 
                       className="btn btn-link collapsed" 
                       type="button" 
-                      data-toggle="collapse" 
-                      data-target="#collapseTwo" 
+                      data-bs-toggle="collapse" 
+                      data-bs-target="#collapseTwo" 
                       aria-expanded="false" 
                       aria-controls="collapseTwo"
                     >
@@ -92,8 +95,8 @@ function Somos({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
                     <button 
                       className="btn btn-link collapsed" 
                       type="button" 
-                      data-toggle="collapse" 
-                      data-target="#collapseThree" 
+                      data-bs-toggle="collapse" 
+                      data-bs-target="#collapseThree" 
                       aria-expanded="false" 
                       aria-controls="collapseThree"
                     >
@@ -164,8 +167,8 @@ function Somos({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
                     <button 
                       className="btn btn-link collapsed" 
                       type="button" 
-                      data-toggle="collapse" 
-                      data-target="#collapseFour" 
+                      data-bs-toggle="collapse" 
+                      data-bs-target="#collapseFour" 
                       aria-expanded="false" 
                       aria-controls="collapseFour"
                     >
@@ -207,17 +210,29 @@ function Somos({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
           <ul className="nav justify-content-center">
             <li className="nav-item">
               <a className="nav-link pl-0" href="https://www.facebook.com/sitamco/" target="_blank" rel="noopener noreferrer">
-                <img src="/src/assets/images/icons/512/facebook.png" alt="Facebook" height="25" />
+                <img 
+                  src={theme === 'dark' ? "/src/assets/images/icons/512/facebook_white.png" : "/src/assets/images/icons/512/facebook.png"} 
+                  alt="Facebook" 
+                  height="25" 
+                />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link pl-0" href="https://www.instagram.com/sitamcocl" target="_blank" rel="noopener noreferrer">
-                <img src="/src/assets/images/icons/512/instagram.png" alt="Instagram" height="25" />
+                <img 
+                  src={theme === 'dark' ? "/src/assets/images/icons/512/instagram_white.png" : "/src/assets/images/icons/512/instagram.png"} 
+                  alt="Instagram" 
+                  height="25" 
+                />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link pl-0" href="https://www.twitter.com/sitamcocl" target="_blank" rel="noopener noreferrer">
-                <img src="/src/assets/images/icons/512/twitter.png" alt="Twitter" height="25" />
+                <img 
+                  src={theme === 'dark' ? "/src/assets/images/icons/512/twitter_white.png" : "/src/assets/images/icons/512/twitter.png"} 
+                  alt="Twitter" 
+                  height="25" 
+                />
               </a>
             </li>
           </ul>

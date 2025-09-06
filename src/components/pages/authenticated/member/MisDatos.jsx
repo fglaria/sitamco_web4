@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getUserData } from '../../../../services/authService.js'
 import { authConfig } from '../../../../config.js'
+import LoadingSpinner from '../../../ui/LoadingSpinner.jsx'
 
 /**
  * MisDatos component that displays user personal information and membership status
@@ -60,12 +61,11 @@ function MisDatos({ onLogout }) {
               </div>
               <div className="card-body">
                 {loading ? (
-                  <div className="text-center">
-                    <div className="spinner-border" role="status">
-                      <span className="sr-only">Cargando...</span>
-                    </div>
-                    <p className="mt-2">Cargando datos del usuario...</p>
-                  </div>
+                  <LoadingSpinner 
+                    size="md" 
+                    variant="primary" 
+                    text="Cargando datos del usuario..." 
+                  />
                 ) : error ? (
                   <div className="alert alert-danger">
                     <strong>Error:</strong> {error}
@@ -96,7 +96,11 @@ function MisDatos({ onLogout }) {
               </div>
               <div className="card-body">
                 {loading ? (
-                  <p>Cargando estado...</p>
+                  <LoadingSpinner 
+                    size="sm" 
+                    variant="secondary" 
+                    text="Cargando estado..." 
+                  />
                 ) : userData ? (
                   <div>
                     <p><strong>Estado:</strong> <span className={`badge ${userData.status === 'CREATED' ? 'badge-info' : 'badge-secondary'}`}>{userData.status}</span></p>

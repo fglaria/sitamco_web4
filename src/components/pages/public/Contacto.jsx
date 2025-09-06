@@ -1,4 +1,5 @@
 import Menu from '../../ui/Menu.jsx'
+import { useTheme } from '../../../contexts/ThemeContext.jsx'
 
 /**
  * Contacto component that displays SITAMCO contact information
@@ -11,9 +12,10 @@ import Menu from '../../ui/Menu.jsx'
  * @returns {JSX.Element} SITAMCO Contacto page JSX element
  */
 function Contacto({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin }) {
+  const { theme } = useTheme()
 
   return (
-    <div className="d-flex flex-column sticky-footer-wrapper min-vh-100">
+    <div className="d-flex flex-column sticky-footer-wrapper min-vh-100 bg-body text-body">
       {/* Navigation */}
       <Menu onLogout={onLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} onShowLogin={onShowLogin} />
 
@@ -91,17 +93,29 @@ function Contacto({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLo
           <ul className="nav justify-content-center">
             <li className="nav-item">
               <a className="nav-link pl-0" href="https://www.facebook.com/sitamco/" target="_blank" rel="noopener noreferrer">
-                <img src="/src/assets/images/icons/512/facebook.png" alt="Facebook" height="25" />
+                <img 
+                  src={theme === 'dark' ? "/src/assets/images/icons/512/facebook_white.png" : "/src/assets/images/icons/512/facebook.png"} 
+                  alt="Facebook" 
+                  height="25" 
+                />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link pl-0" href="https://www.instagram.com/sitamcocl" target="_blank" rel="noopener noreferrer">
-                <img src="/src/assets/images/icons/512/instagram.png" alt="Instagram" height="25" />
+                <img 
+                  src={theme === 'dark' ? "/src/assets/images/icons/512/instagram_white.png" : "/src/assets/images/icons/512/instagram.png"} 
+                  alt="Instagram" 
+                  height="25" 
+                />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link pl-0" href="https://www.twitter.com/sitamcocl" target="_blank" rel="noopener noreferrer">
-                <img src="/src/assets/images/icons/512/twitter.png" alt="Twitter" height="25" />
+                <img 
+                  src={theme === 'dark' ? "/src/assets/images/icons/512/twitter_white.png" : "/src/assets/images/icons/512/twitter.png"} 
+                  alt="Twitter" 
+                  height="25" 
+                />
               </a>
             </li>
           </ul>

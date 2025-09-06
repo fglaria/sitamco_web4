@@ -1,4 +1,5 @@
 import Menu from '../../ui/Menu.jsx'
+import { useTheme } from '../../../contexts/ThemeContext.jsx'
 
 /**
  * Unete component that displays SITAMCO membership information and FAQ
@@ -11,9 +12,10 @@ import Menu from '../../ui/Menu.jsx'
  * @returns {JSX.Element} SITAMCO Unete page JSX element
  */
 function Unete({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin }) {
+  const { theme } = useTheme()
 
   return (
-    <div className="d-flex flex-column sticky-footer-wrapper min-vh-100">
+    <div className="d-flex flex-column sticky-footer-wrapper min-vh-100 bg-body text-body">
       {/* Navigation */}
       <Menu onLogout={onLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} onShowLogin={onShowLogin} />
 
@@ -39,7 +41,7 @@ function Unete({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
               <div className="card">
                 <div className="card-header" id="headingOne">
                   <h2 className="mb-0">
-                    <button className="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <button className="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                       ¿Qué profesiones y/u oficios pueden ingresar?
                     </button>
                   </h2>
@@ -57,7 +59,7 @@ function Unete({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
               <div className="card">
                 <div className="card-header" id="headingTwo">
                   <h2 className="mb-0">
-                    <button className="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <button className="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                       ¿Cuál es la jurisdicción de SITAMCO?
                     </button>
                   </h2>
@@ -73,7 +75,7 @@ function Unete({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
               <div className="card">
                 <div className="card-header" id="headingThree">
                   <h2 className="mb-0">
-                    <button className="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <button className="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                       ¿Qué información debo presentar?
                     </button>
                   </h2>
@@ -88,7 +90,7 @@ function Unete({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
               <div className="card">
                 <div className="card-header" id="headingFour">
                   <h2 className="mb-0">
-                    <button className="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    <button className="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                       ¿Qué debo saber?
                     </button>
                   </h2>
@@ -104,7 +106,7 @@ function Unete({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
               <div className="card">
                 <div className="card-header" id="headingFive">
                   <h2 className="mb-0">
-                    <button className="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    <button className="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                       Ya envié mi solicitud. ¿Ahora qué?
                     </button>
                   </h2>
@@ -120,7 +122,7 @@ function Unete({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
               <div className="card">
                 <div className="card-header" id="headingSix">
                   <h2 className="mb-0">
-                    <button className="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    <button className="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                       Rechazaron mi solicitud. ¿Puedo volver a intentarlo?
                     </button>
                   </h2>
@@ -136,7 +138,7 @@ function Unete({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
               <div className="card">
                 <div className="card-header" id="headingSeven">
                   <h2 className="mb-0">
-                    <button className="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                    <button className="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                       Tengo más dudas. ¿A dónde puedo escribir?
                     </button>
                   </h2>
@@ -160,17 +162,29 @@ function Unete({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin
           <ul className="nav justify-content-center">
             <li className="nav-item">
               <a className="nav-link pl-0" href="https://www.facebook.com/sitamco/" target="_blank" rel="noopener noreferrer">
-                <img src="/src/assets/images/icons/512/facebook.png" alt="Facebook" height="25" />
+                <img 
+                  src={theme === 'dark' ? "/src/assets/images/icons/512/facebook_white.png" : "/src/assets/images/icons/512/facebook.png"} 
+                  alt="Facebook" 
+                  height="25" 
+                />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link pl-0" href="https://www.instagram.com/sitamcocl" target="_blank" rel="noopener noreferrer">
-                <img src="/src/assets/images/icons/512/instagram.png" alt="Instagram" height="25" />
+                <img 
+                  src={theme === 'dark' ? "/src/assets/images/icons/512/instagram_white.png" : "/src/assets/images/icons/512/instagram.png"} 
+                  alt="Instagram" 
+                  height="25" 
+                />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link pl-0" href="https://www.twitter.com/sitamcocl" target="_blank" rel="noopener noreferrer">
-                <img src="/src/assets/images/icons/512/twitter.png" alt="Twitter" height="25" />
+                <img 
+                  src={theme === 'dark' ? "/src/assets/images/icons/512/twitter_white.png" : "/src/assets/images/icons/512/twitter.png"} 
+                  alt="Twitter" 
+                  height="25" 
+                />
               </a>
             </li>
           </ul>

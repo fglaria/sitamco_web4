@@ -1,3 +1,8 @@
+import { useState, useEffect } from 'react'
+import { getAllUsers } from '../../../../services/authService.js'
+import { authConfig } from '../../../../config.js'
+import LoadingSpinner from '../../../ui/LoadingSpinner.jsx'
+
 /**
  * Miembros component for managing union members
  * @param {Object} props - Component props
@@ -5,23 +10,141 @@
  * @returns {JSX.Element} Miembros JSX element
  */
 function Miembros({ onLogout }) {
+  const [users, setUsers] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        setLoading(true)
+        setError('')
+        const token = localStorage.getItem(authConfig.tokenKey)
+        
+        if (!token) {
+          setError('No authentication token found')
+          return
+        }
+
+        const result = await getAllUsers(token)
+        if (result.success && result.users) {
+          setUsers(result.users)
+        } else {
+          setError('No se pudieron obtener los usuarios')
+        }
+      } catch (err) {
+        // Check for 401 error and redirect to public site
+        if (err.message && (err.message.includes('401') || err.message.includes('Unauthorized'))) {
+          onLogout()
+          return
+        }
+        setError(err.message || 'Error al cargar los usuarios')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchUsers()
+  }, [onLogout])
+
+  const formatDate = (dateString) => {
+    if (!dateString) return 'No especificada'
+    return new Date(dateString).toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    })
+  }
+
+  const getStatusBadge = (user) => {
+    const isActive = user.active
+    const status = user.status || 'UNKNOWN'
+    
+    if (isActive && status === 'CREATED') {
+      return <span className="badge badge-success">Activo</span>
+    } else if (!isActive) {
+      return <span className="badge badge-danger">Inactivo</span>
+    } else {
+      return <span className="badge badge-secondary">{status}</span>
+    }
+  }
+
   return (
     <div className="dashboard-content">
       <h2>Gestión de Miembros</h2>
       <div className="welcome-content">
         <p>Administra los miembros del sindicato.</p>
-        <div className="row">
-          <div className="col-12">
-            <div className="card">
-              <div className="card-header">
-                <h5>Lista de Miembros</h5>
-              </div>
-              <div className="card-body">
-                <p>Aquí se mostrará la lista de miembros del sindicato con opciones para ver detalles, editar información y gestionar estados de membresía.</p>
+        
+        {loading && (
+          <LoadingSpinner 
+            size="md" 
+            variant="primary" 
+            text="Cargando usuarios..." 
+          />
+        )}
+
+        {error && (
+          <div className="alert alert-danger">
+            <strong>Error:</strong> {error}
+          </div>
+        )}
+
+        {!loading && !error && users.length === 0 && (
+          <div className="alert alert-info">
+            <strong>Sin datos:</strong> No se encontraron usuarios registrados.
+          </div>
+        )}
+
+        {!loading && !error && users.length > 0 && (
+          <div className="row">
+            <div className="col-12">
+              <div className="card">
+                <div className="card-header d-flex justify-content-between align-items-center">
+                  <h5 className="mb-0">Miembros Registrados ({users.length})</h5>
+                </div>
+                <div className="card-body p-0">
+                  <div className="table-responsive">
+                    <table className="table table-hover mb-0">
+                      <thead className="table-light">
+                        <tr>
+                          <th>Nombre Completo</th>
+                          <th>Email</th>
+                          <th>RUN</th>
+                          <th>Estado</th>
+                          <th>Ingreso</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {users.map(user => (
+                          <tr key={user.id}>
+                            <td>
+                              <div className="user-info">
+                                <strong>
+                                  {[user.first_name, user.middle_name, user.last_name1, user.last_name2]
+                                    .filter(Boolean)
+                                    .join(' ')}
+                                </strong>
+                                {user.phone && (
+                                  <div className="text-muted small">{user.phone}</div>
+                                )}
+                              </div>
+                            </td>
+                            <td>{user.email}</td>
+                            <td>
+                              <code className="text-muted">{user.run || 'No especificado'}</code>
+                            </td>
+                            <td>{getStatusBadge(user)}</td>
+                            <td className="text-muted small">{formatDate(user.signed_at)}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

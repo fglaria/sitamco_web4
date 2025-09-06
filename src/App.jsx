@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import Login from './components/ui/Login.jsx'
 import PublicSite from './components/pages/public/PublicSite.jsx'
 import PrivateSite from './components/pages/authenticated/PrivateSite.jsx'
-import { ThemeProvider } from './components/providers/ThemeProvider.jsx'
 import { logoutUser } from './services/authService.js'
 import { authConfig } from './config.js'
+import { ThemeProvider } from './contexts/ThemeContext.jsx'
 import './App.css'
 
 /**

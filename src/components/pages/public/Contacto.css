@@ -1,22 +1,18 @@
-/* SITAMCO Contacto Page Styles */
+/* SITAMCO Contacto Page Styles - Bootstrap Only */
 
 .contact-info {
-  background-color: var(--color-bg-secondary);
-  border: 1px solid var(--color-border-primary);
-  border-radius: 6px;
+  border-radius: 0.375rem;
   padding: 1.25rem;
   height: fit-content;
 }
 
 .contact-info h2 {
-  color: var(--color-primary);
   font-size: 1.25rem;
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
 
 .contact-info .lead {
-  color: var(--color-text-secondary);
   margin-bottom: 1.25rem;
   font-size: 0.9rem;
 }
@@ -26,7 +22,6 @@
   align-items: flex-start;
   margin-bottom: 1.25rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--color-border-primary);
 }
 
 .contact-item:last-child {
@@ -38,7 +33,6 @@
 .contact-icon {
   width: 50px;
   height: 50px;
-  background-color: var(--color-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -48,35 +42,29 @@
 }
 
 .contact-icon i {
-  color: white;
   font-size: 1.25rem;
 }
 
 .contact-details h4 {
-  color: var(--color-text-primary);
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .contact-details p {
-  color: var(--color-text-secondary);
   margin-bottom: 0;
   line-height: 1.5;
 }
 
 .contact-details a {
-  color: var(--color-primary);
   text-decoration: none;
 }
 
 .contact-details a:hover {
-  color: var(--color-primary-hover);
   text-decoration: underline;
 }
 
 .social-media h4 {
-  color: var(--color-text-primary);
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -91,16 +79,12 @@
 .social-link {
   display: flex;
   align-items: center;
-  color: var(--color-primary);
   text-decoration: none;
   padding: 0.5rem;
-  border-radius: 0.25rem;
-  transition: background-color 0.15s ease;
+  border-radius: 0.375rem;
 }
 
 .social-link:hover {
-  background-color: rgba(0, 123, 255, 0.1);
-  color: #0056b3;
   text-decoration: none;
 }
 
@@ -111,14 +95,11 @@
 }
 
 .contact-form {
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border-primary);
   border-radius: 0.5rem;
   padding: 2rem;
 }
 
 .contact-form h2 {
-  color: var(--color-text-primary);
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -126,78 +107,39 @@
 
 .form-label {
   font-weight: 500;
-  color: var(--color-text-primary);
   margin-bottom: 0.5rem;
 }
 
 .form-control, .form-select {
-  border: 1px solid #ced4da;
   border-radius: 0.375rem;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.form-control:focus, .form-select:focus {
-  border-color: var(--color-input-focus-border);
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
   padding: 0.75rem 2rem;
   font-weight: 500;
   border-radius: 0.5rem;
-  transition: all 0.15s ease-in-out;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
   transform: translateY(-1px);
 }
 
-.btn-primary:disabled {
-  background-color: #6c757d;
-  border-color: #6c757d;
-  transform: none;
-}
-
-.spinner-border-sm {
-  width: 1rem;
-  height: 1rem;
-}
 
 /* Page title */
 h1 {
-  color: var(--color-text-primary);
   font-weight: 700;
   margin-bottom: 3rem;
 }
 
 /* Alert styling */
 .alert-success {
-  border-left: 4px solid #28a745;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
-  color: #155724;
+  border-left: 4px solid;
 }
 
 .alert-info {
-  border-left: 4px solid var(--color-primary);
-  background-color: #f8f9fa;
-}
-
-.alert-info h5 {
-  color: var(--color-text-primary);
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-
-.alert-info p {
-  color: var(--color-text-secondary);
-  margin-bottom: 0;
+  border-left: 4px solid;
 }
 
 /* Responsive adjustments */
@@ -233,5 +175,3 @@ h1 {
     padding: 0.75rem 1.5rem;
   }
 }
-
-/* Updated to use theme variables instead of media queries */

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { changePassword } from '../../../../services/authService.js'
 import { authConfig } from '../../../../config.js'
+import LoadingSpinner from '../../../ui/LoadingSpinner.jsx'
 
 /**
  * MiContrasena component for changing user password
@@ -156,10 +157,10 @@ function MiContrasena({ onLogout }) {
                     disabled={loading}
                   >
                     {loading ? (
-                      <>
-                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                      <div className="inline-spinner">
+                        <LoadingSpinner size="sm" variant="light" text="" />
                         Cambiando...
-                      </>
+                      </div>
                     ) : (
                       'Cambiar Contraseña'
                     )}
