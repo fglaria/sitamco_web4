@@ -1,12 +1,14 @@
-/* Modern, Elegant Navigation */
+/* Enhanced Navigation with Theme Variables */
 
 .modern-navbar {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: var(--sitamco-navbar-bg);
+  backdrop-filter: var(--sitamco-backdrop-blur);
+  -webkit-backdrop-filter: var(--sitamco-backdrop-blur);
+  border-bottom: 1px solid var(--sitamco-navbar-border);
+  box-shadow: var(--sitamco-shadow-sm);
   padding: 0.75rem 0;
   transition: all 0.3s ease;
+  color: var(--sitamco-navbar-text);
 }
 
 /* Logo */
@@ -21,13 +23,13 @@
 }
 
 .logo-btn:hover {
-  background-color: rgba(59, 130, 246, 0.1);
+  background-color: var(--sitamco-hover-bg);
   transform: translateY(-1px);
 }
 
 .logo-btn:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 3px var(--sitamco-focus-ring);
 }
 
 .logo-img {
@@ -52,14 +54,14 @@
 }
 
 .nav-btn:hover {
-  background-color: rgba(59, 130, 246, 0.1) !important;
+  background-color: var(--sitamco-hover-bg) !important;
   transform: translateY(-1px);
-  color: rgb(59, 130, 246) !important;
+  color: var(--sitamco-primary) !important;
 }
 
 .nav-btn.active {
-  background-color: rgba(59, 130, 246, 0.15) !important;
-  color: rgb(59, 130, 246) !important;
+  background-color: var(--sitamco-primary-light) !important;
+  color: var(--sitamco-primary) !important;
   font-weight: 600;
 }
 
@@ -71,31 +73,32 @@
   transform: translateX(-50%);
   width: 24px;
   height: 2px;
-  background: rgb(59, 130, 246);
+  background: var(--sitamco-primary);
   border-radius: 2px;
 }
 
 .nav-btn:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+  box-shadow: 0 0 0 3px var(--sitamco-focus-ring) !important;
 }
 
 /* Dashboard Title */
 .dashboard-title {
   font-weight: 600;
   font-size: 1rem;
-  color: rgb(59, 130, 246);
+  color: var(--sitamco-primary);
   margin-right: 1rem;
   padding: 0.75rem 0;
 }
 
-/* Theme Toggle Button */
+/* Enhanced Theme Toggle Button */
 .theme-btn {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 1px solid rgba(156, 163, 175, 0.3);
+  border: 1px solid var(--sitamco-border-medium);
   background: transparent;
+  color: var(--sitamco-text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,7 +115,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+  background: var(--sitamco-primary-light);
   opacity: 0;
   transition: opacity 0.2s ease;
 }
@@ -122,14 +125,15 @@
 }
 
 .theme-btn:hover {
-  border-color: rgb(59, 130, 246);
+  border-color: var(--sitamco-primary);
+  color: var(--sitamco-primary);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  box-shadow: var(--sitamco-shadow-md);
 }
 
 .theme-btn:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 3px var(--sitamco-focus-ring);
 }
 
 /* User Menu Button */

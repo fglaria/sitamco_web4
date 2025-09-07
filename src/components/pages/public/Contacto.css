@@ -1,15 +1,20 @@
-/* SITAMCO Contacto Page Styles - Bootstrap Only */
+/* Enhanced SITAMCO Contacto Page with Theme Variables */
 
 .contact-info {
-  border-radius: 0.375rem;
-  padding: 1.25rem;
+  background-color: var(--sitamco-card-bg);
+  border: 1px solid var(--sitamco-card-border);
+  box-shadow: var(--sitamco-card-shadow);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
   height: fit-content;
+  transition: all 0.2s ease;
 }
 
 .contact-info h2 {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 0.75rem;
+  color: var(--sitamco-text-primary);
 }
 
 .contact-info .lead {
@@ -95,35 +100,59 @@
 }
 
 .contact-form {
-  border-radius: 0.5rem;
+  background-color: var(--sitamco-card-bg);
+  border: 1px solid var(--sitamco-card-border);
+  box-shadow: var(--sitamco-card-shadow);
+  border-radius: 0.75rem;
   padding: 2rem;
+  transition: all 0.2s ease;
 }
 
 .contact-form h2 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: var(--sitamco-text-primary);
 }
 
 .form-label {
   font-weight: 500;
   margin-bottom: 0.5rem;
+  color: var(--sitamco-text-secondary);
 }
 
 .form-control, .form-select {
-  border-radius: 0.375rem;
+  background-color: var(--sitamco-input-bg);
+  border: 2px solid var(--sitamco-input-border);
+  color: var(--sitamco-input-text);
+  border-radius: 0.5rem;
   padding: 0.75rem 1rem;
   font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--sitamco-primary);
+  box-shadow: 0 0 0 3px var(--sitamco-focus-ring);
+  background-color: var(--sitamco-surface);
 }
 
 .btn-primary {
+  background-color: var(--sitamco-button-primary-bg);
+  border-color: var(--sitamco-button-primary-bg);
+  color: var(--sitamco-button-primary-text);
   padding: 0.75rem 2rem;
   font-weight: 500;
   border-radius: 0.5rem;
+  transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
+  background-color: var(--sitamco-button-primary-hover);
+  border-color: var(--sitamco-button-primary-hover);
   transform: translateY(-1px);
+  box-shadow: var(--sitamco-shadow-md);
 }
 
 

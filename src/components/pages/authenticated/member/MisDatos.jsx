@@ -55,11 +55,11 @@ function MisDatos({ onLogout }) {
         <p>Información personal y estado de membresía.</p>
         <div className="row">
           <div className="col-md-6">
-            <div className="card mb-3">
-              <div className="card-header">
-                <h5>Información Personal</h5>
+            <div className="card mb-3 bg-sitamco-surface border-sitamco-medium elevation-2">
+              <div className="card-header bg-sitamco-secondary border-sitamco-light">
+                <h5 className="text-sitamco-primary">Información Personal</h5>
               </div>
-              <div className="card-body">
+              <div className="card-body text-sitamco-primary">
                 {loading ? (
                   <LoadingSpinner 
                     size="md" 
@@ -90,11 +90,11 @@ function MisDatos({ onLogout }) {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="card mb-3">
-              <div className="card-header">
-                <h5>Estado de Membresía</h5>
+            <div className="card mb-3 bg-sitamco-surface border-sitamco-medium elevation-2">
+              <div className="card-header bg-sitamco-secondary border-sitamco-light">
+                <h5 className="text-sitamco-primary">Estado de Membresía</h5>
               </div>
-              <div className="card-body">
+              <div className="card-body text-sitamco-primary">
                 {loading ? (
                   <LoadingSpinner 
                     size="sm" 

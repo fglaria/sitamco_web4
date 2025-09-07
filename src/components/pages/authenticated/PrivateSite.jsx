@@ -91,7 +91,7 @@ function PrivateSite({ onLogout, navigateTo, currentPage, isAuthenticated }) {
 
   const renderTopMenu = () => {
     return (
-      <nav className="private-header navbar navbar-expand-lg bg-body sticky-top">
+      <nav className="private-header navbar navbar-expand-lg sticky-top">
         <div className="container-fluid px-4">
           {/* Logo */}
           <button 
@@ -252,7 +252,7 @@ function PrivateSite({ onLogout, navigateTo, currentPage, isAuthenticated }) {
   }
 
   return (
-    <div className="private-site bg-body text-body">
+    <div className="private-site">
       {renderTopMenu()}
       <div className="private-site-content">
         {renderCurrentSection()}

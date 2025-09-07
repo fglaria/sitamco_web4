@@ -16,7 +16,7 @@ function Menu({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLogin,
   const { theme, toggleTheme } = useTheme()
   
   return (
-    <nav className="navbar navbar-expand-lg bg-body sticky-top modern-navbar">
+    <nav className="navbar navbar-expand-lg sticky-top modern-navbar">
       <div className="container-fluid px-4">
         {/* Logo */}
         <button 

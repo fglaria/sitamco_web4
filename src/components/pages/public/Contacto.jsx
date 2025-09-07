@@ -15,7 +15,7 @@ function Contacto({ onLogout, navigateTo, currentPage, isAuthenticated, onShowLo
   const { theme } = useTheme()
 
   return (
-    <div className="d-flex flex-column sticky-footer-wrapper min-vh-100 bg-body text-body">
+    <div className="d-flex flex-column sticky-footer-wrapper min-vh-100">
       {/* Navigation */}
       <Menu onLogout={onLogout} navigateTo={navigateTo} currentPage={currentPage} isAuthenticated={isAuthenticated} onShowLogin={onShowLogin} />
 

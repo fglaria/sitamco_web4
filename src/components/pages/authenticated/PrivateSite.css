@@ -1,15 +1,18 @@
-/* PrivateSite Component Styles - Modern Design */
+/* Enhanced Private Site with Theme Variables */
 
 .private-site {
   min-height: 100vh;
+  background-color: var(--sitamco-bg-primary);
+  color: var(--sitamco-text-primary);
 }
 
-/* Modern Private Header */
+/* Enhanced Private Header */
 .private-header {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: var(--sitamco-navbar-bg);
+  backdrop-filter: var(--sitamco-backdrop-blur);
+  -webkit-backdrop-filter: var(--sitamco-backdrop-blur);
+  border-bottom: 1px solid var(--sitamco-navbar-border);
+  box-shadow: var(--sitamco-shadow-sm);
   padding: 0.75rem 0;
   transition: all 0.3s ease;
 }
@@ -26,13 +29,13 @@
 }
 
 .private-logo-btn:hover {
-  background-color: rgba(59, 130, 246, 0.1);
+  background-color: var(--sitamco-hover-bg);
   transform: translateY(-1px);
 }
 
 .private-logo-btn:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 3px var(--sitamco-focus-ring);
 }
 
 .private-logo-img {
@@ -46,10 +49,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: rgba(59, 130, 246, 0.05);
+  background-color: var(--sitamco-bg-secondary);
+  border: 1px solid var(--sitamco-border-light);
   border-radius: 12px;
   padding: 0.375rem;
-  border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .private-tab-btn {
