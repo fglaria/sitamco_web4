@@ -1,0 +1,158 @@
+/* Enhanced Theme Variables - Modern Color System */
+
+:root {
+  /* Override Bootstrap 5 CSS Variables with Our Palette */
+  --bs-body-bg: #F8FAFC !important;
+  --bs-body-color: #1A1A1A !important;
+  --bs-border-color: #BCCCDC !important;
+  --bs-secondary-bg: #D9EAFD !important;
+  --bs-tertiary-bg: #D9EAFD !important;
+  --bs-card-bg: #F8FAFC !important;
+  --bs-card-border-color: #BCCCDC !important;
+  
+  /* Light Theme - EXACT Palette Colors Only */
+  
+  /* Background Colors - Using ONLY Light Palette Colors */
+  --sitamco-bg-primary: #F8FAFC;     /* Lightest - main background */
+  --sitamco-bg-secondary: #D9EAFD;   /* Second - secondary areas */
+  --sitamco-surface: #F8FAFC;        /* Lightest - cards and surfaces */
+  --sitamco-surface-elevated: #D9EAFD; /* Second - elevated cards */
+  
+  /* Border Colors - Using ONLY Medium Tones from Palette */
+  --sitamco-border-light: #D9EAFD;   /* Second color - subtle borders */
+  --sitamco-border-medium: #BCCCDC;  /* Third color - normal borders */
+  --sitamco-border-strong: #9AA6B2;  /* Fourth color - strong borders */
+  
+  /* Text Colors - Using Palette + Darker for Readability */
+  --sitamco-text-primary: #1A1A1A;   /* Very dark for maximum contrast */
+  --sitamco-text-secondary: #9AA6B2; /* Fourth palette color - secondary text */
+  --sitamco-text-tertiary: #BCCCDC;  /* Third palette color - tertiary text */
+  --sitamco-text-muted: #BCCCDC;     /* Third palette color - muted text */
+  --sitamco-text-inverse: #F8FAFC;   /* First palette color - inverse text */
+  
+  /* Brand Colors - Based on Palette */
+  --sitamco-primary: #9AA6B2;        /* Fourth palette color as primary */
+  --sitamco-primary-hover: #7A8490;  /* Darker variant of fourth color */
+  --sitamco-primary-light: #D9EAFD;  /* Second palette color for light variant */
+  --sitamco-primary-dark: #6B7481;   /* Even darker variant */
+  
+  /* Status Colors - Keep simple */
+  --sitamco-success: #10B981;
+  --sitamco-warning: #F59E0B;
+  --sitamco-danger: #EF4444;
+  
+  /* Interactive States - Based on Palette */
+  --sitamco-hover-bg: rgba(217, 234, 253, 0.3);  /* Second palette color with transparency */
+  --sitamco-active-bg: rgba(188, 204, 220, 0.5); /* Third palette color with transparency */
+  --sitamco-focus-ring: rgba(154, 166, 178, 0.3); /* Fourth palette color with transparency */
+  
+  /* Shadow System */
+  --sitamco-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --sitamco-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --sitamco-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --sitamco-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Glass Effect */
+  --sitamco-glass-bg: rgba(248, 250, 252, 0.8);
+  --sitamco-glass-border: rgba(255, 255, 255, 0.2);
+  --sitamco-backdrop-blur: blur(12px);
+}
+
+[data-bs-theme="dark"] {
+  /* Override Bootstrap 5 Dark Theme Variables with Our Palette */
+  --bs-body-bg: #181C14 !important;
+  --bs-body-color: #ECDFCC !important;
+  --bs-border-color: #697565 !important;
+  --bs-secondary-bg: #3C3D37 !important;
+  --bs-tertiary-bg: #3C3D37 !important;
+  --bs-card-bg: #3C3D37 !important;
+  --bs-card-border-color: #697565 !important;
+  
+  /* Dark Theme - EXACT Palette Colors Only */
+  
+  /* Background Colors - Using ONLY Dark Palette Colors */
+  --sitamco-bg-primary: #181C14;     /* Darkest - main background */
+  --sitamco-bg-secondary: #3C3D37;   /* Second - secondary areas */
+  --sitamco-surface: #3C3D37;        /* Second - cards and surfaces */
+  --sitamco-surface-elevated: #697565; /* Third - elevated cards */
+  
+  /* Border Colors - Using ONLY Palette Colors */
+  --sitamco-border-light: #3C3D37;   /* Second color - subtle borders */
+  --sitamco-border-medium: #697565;  /* Third color - normal borders */
+  --sitamco-border-strong: #ECDFCC;  /* Fourth color - strong borders */
+  
+  /* Text Colors - Using ONLY Palette Colors */
+  --sitamco-text-primary: #ECDFCC;   /* Fourth palette color - main text */
+  --sitamco-text-secondary: #697565; /* Third palette color - secondary text */
+  --sitamco-text-tertiary: #697565;  /* Third palette color - tertiary text */
+  --sitamco-text-muted: #697565;     /* Third palette color - muted text */
+  --sitamco-text-inverse: #181C14;   /* First palette color - inverse text */
+  
+  /* Brand Colors - Based on Dark Palette */
+  --sitamco-primary: #697565;        /* Third palette color as primary */
+  --sitamco-primary-hover: #ECDFCC;  /* Fourth palette color for hover */
+  --sitamco-primary-light: #3C3D37;  /* Second palette color for light variant */
+  --sitamco-primary-dark: #181C14;   /* First palette color for dark variant */
+  
+  /* Status Colors - Dark Mode */
+  --sitamco-success: #34D399;
+  --sitamco-warning: #FBBF24;
+  --sitamco-danger: #F87171;
+  
+  /* Interactive States - Based on Dark Palette */
+  --sitamco-hover-bg: rgba(105, 117, 101, 0.2);  /* Third palette color with transparency */
+  --sitamco-active-bg: rgba(236, 223, 204, 0.1); /* Fourth palette color with transparency */
+  --sitamco-focus-ring: rgba(236, 223, 204, 0.3); /* Fourth palette color with transparency */
+  
+  /* Shadow System - Subtle in dark mode */
+  --sitamco-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --sitamco-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --sitamco-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --sitamco-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+  
+  /* Glass Effect */
+  --sitamco-glass-bg: rgba(60, 61, 55, 0.8);
+  --sitamco-glass-border: rgba(236, 223, 204, 0.1);
+  --sitamco-backdrop-blur: blur(12px);
+}
+
+/* Semantic Color Tokens */
+:root,
+[data-bs-theme="dark"] {
+  /* Component-specific tokens */
+  --sitamco-navbar-bg: var(--sitamco-surface);
+  --sitamco-navbar-text: var(--sitamco-text-primary);
+  --sitamco-navbar-border: var(--sitamco-border-light);
+  
+  --sitamco-card-bg: var(--sitamco-surface);
+  --sitamco-card-border: var(--sitamco-border-light);
+  --sitamco-card-shadow: var(--sitamco-shadow-md);
+  
+  --sitamco-input-bg: var(--sitamco-bg-primary);
+  --sitamco-input-border: var(--sitamco-border-medium);
+  --sitamco-input-text: var(--sitamco-text-primary);
+  --sitamco-input-placeholder: var(--sitamco-text-muted);
+  
+  --sitamco-button-primary-bg: var(--sitamco-primary);
+  --sitamco-button-primary-text: var(--sitamco-text-inverse);
+  --sitamco-button-primary-hover: var(--sitamco-primary-hover);
+  
+  --sitamco-modal-bg: var(--sitamco-glass-bg);
+  --sitamco-modal-border: var(--sitamco-glass-border);
+  --sitamco-modal-backdrop: var(--sitamco-backdrop-blur);
+}
+
+/* Utility Classes for Theme Colors */
+.bg-sitamco-primary { background-color: var(--sitamco-bg-primary); }
+.bg-sitamco-secondary { background-color: var(--sitamco-bg-secondary); }
+.bg-sitamco-surface { background-color: var(--sitamco-surface); }
+
+.text-sitamco-primary { color: var(--sitamco-text-primary); }
+.text-sitamco-secondary { color: var(--sitamco-text-secondary); }
+.text-sitamco-muted { color: var(--sitamco-text-muted); }
+
+.border-sitamco-light { border-color: var(--sitamco-border-light); }
+.border-sitamco-medium { border-color: var(--sitamco-border-medium); }
+
+/* Simple Elevation System - Only Used Classes */
+.elevation-2 { box-shadow: var(--sitamco-shadow-md); }

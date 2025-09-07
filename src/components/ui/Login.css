@@ -1,9 +1,9 @@
 /* Modern Login Modal Styles */
 
-/* Backdrop with blur effect */
+/* Enhanced Backdrop with Theme Variables */
 .modern-login-backdrop {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: var(--sitamco-backdrop-blur);
+  -webkit-backdrop-filter: var(--sitamco-backdrop-blur);
   background: rgba(0, 0, 0, 0.4);
   animation: backdropFadeIn 0.3s ease-out;
 }
@@ -39,26 +39,23 @@
   }
 }
 
-/* Modal content with glass effect */
+/* Enhanced Modal Content with Theme Variables */
 .modern-login-content {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--sitamco-modal-border);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04),
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  background: var(--sitamco-modal-bg);
+  backdrop-filter: var(--sitamco-modal-backdrop);
+  -webkit-backdrop-filter: var(--sitamco-modal-backdrop);
+  box-shadow: var(--sitamco-shadow-xl);
   overflow: hidden;
   transition: all 0.2s ease;
 }
 
-/* Header styling */
+/* Enhanced Header with Theme Variables */
 .modern-login-header {
   padding: 1.5rem 2rem 1rem 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.02), rgba(147, 51, 234, 0.02));
+  border-bottom: 1px solid var(--sitamco-border-light);
+  background: var(--sitamco-bg-secondary);
   text-align: center;
 }
 
@@ -66,7 +63,7 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
-  color: rgb(30, 41, 59);
+  color: var(--sitamco-text-primary);
   line-height: 1.2;
 }
 
@@ -77,7 +74,7 @@
 }
 
 .modern-login-subtitle {
-  color: rgb(100, 116, 139);
+  color: var(--sitamco-text-secondary);
   text-align: center;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
@@ -100,7 +97,7 @@
 .modern-form-label {
   font-weight: 500;
   font-size: 0.9rem;
-  color: rgb(51, 65, 85);
+  color: var(--sitamco-text-secondary);
   display: flex;
   align-items: center;
   margin: 0;
@@ -110,18 +107,18 @@
   padding: 0.875rem 1rem;
   font-size: 0.95rem;
   line-height: 1.5;
-  border: 2px solid rgba(203, 213, 225, 0.8);
+  border: 2px solid var(--sitamco-input-border);
   border-radius: 12px;
-  background: rgba(248, 250, 252, 0.5);
+  background: var(--sitamco-input-bg);
   transition: all 0.2s ease;
-  color: rgb(30, 41, 59);
+  color: var(--sitamco-input-text);
 }
 
 .modern-form-control:focus {
   outline: none;
-  border-color: rgb(59, 130, 246);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: var(--sitamco-primary);
+  background: var(--sitamco-surface);
+  box-shadow: 0 0 0 3px var(--sitamco-focus-ring);
   transform: translateY(-1px);
 }
 
@@ -131,19 +128,19 @@
 }
 
 .modern-form-control::placeholder {
-  color: rgb(148, 163, 184);
+  color: var(--sitamco-input-placeholder);
   font-weight: 400;
 }
 
-/* Login button */
+/* Enhanced Login Button with Theme Variables */
 .modern-login-btn {
   padding: 1rem 1.5rem;
   font-weight: 600;
   font-size: 0.95rem;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgb(59, 130, 246), rgb(37, 99, 235));
-  color: white;
+  background: var(--sitamco-button-primary-bg);
+  color: var(--sitamco-button-primary-text);
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
@@ -172,13 +169,13 @@
 
 .modern-login-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-  background: linear-gradient(135deg, rgb(37, 99, 235), rgb(29, 78, 216));
+  box-shadow: var(--sitamco-shadow-lg);
+  background: var(--sitamco-button-primary-hover);
 }
 
 .modern-login-btn:active {
   transform: translateY(0);
-  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+  box-shadow: var(--sitamco-shadow-md);
 }
 
 .modern-login-btn:disabled {
@@ -191,7 +188,7 @@
 .modern-login-btn:disabled:hover {
   transform: none;
   box-shadow: none;
-  background: linear-gradient(135deg, rgb(59, 130, 246), rgb(37, 99, 235));
+  background: var(--sitamco-button-primary-bg);
 }
 
 /* Footer */
@@ -201,7 +198,7 @@
 }
 
 .modern-forgot-link {
-  color: rgb(100, 116, 139);
+  color: var(--sitamco-text-secondary);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -213,8 +210,8 @@
 }
 
 .modern-forgot-link:hover {
-  color: rgb(59, 130, 246);
-  background: rgba(59, 130, 246, 0.05);
+  color: var(--sitamco-primary);
+  background: var(--sitamco-hover-bg);
   text-decoration: none;
   transform: translateY(-1px);
 }
@@ -223,7 +220,7 @@
 .modern-error-alert {
   background: rgba(239, 68, 68, 0.05);
   border: 1px solid rgba(239, 68, 68, 0.2);
-  color: rgb(185, 28, 28);
+  color: var(--sitamco-danger);
   border-radius: 10px;
   padding: 0.75rem 1rem;
   margin-bottom: 1.25rem;
@@ -235,57 +232,57 @@
 
 /* Dark theme adjustments */
 [data-bs-theme="dark"] .modern-login-content {
-  background: rgba(17, 24, 39, 0.95);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: var(--sitamco-glass-bg);
+  border-color: var(--sitamco-glass-border);
 }
 
 [data-bs-theme="dark"] .modern-login-header {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(147, 51, 234, 0.05));
-  border-bottom-color: rgba(255, 255, 255, 0.1);
+  background: var(--sitamco-bg-secondary);
+  border-bottom-color: var(--sitamco-border-light);
 }
 
 [data-bs-theme="dark"] .modern-login-title {
-  color: rgb(248, 250, 252);
+  color: var(--sitamco-text-primary);
 }
 
 [data-bs-theme="dark"] .modern-form-label {
-  color: rgb(209, 213, 219);
+  color: var(--sitamco-text-secondary);
 }
 
 [data-bs-theme="dark"] .modern-form-control {
-  background: rgba(30, 41, 59, 0.5);
-  border-color: rgba(71, 85, 105, 0.8);
-  color: rgb(248, 250, 252);
+  background: var(--sitamco-input-bg);
+  border-color: var(--sitamco-input-border);
+  color: var(--sitamco-input-text);
 }
 
 [data-bs-theme="dark"] .modern-form-control:focus {
-  background: rgba(30, 41, 59, 0.8);
-  border-color: rgb(59, 130, 246);
+  background: var(--sitamco-surface);
+  border-color: var(--sitamco-primary);
 }
 
 [data-bs-theme="dark"] .modern-form-control::placeholder {
-  color: rgb(107, 114, 128);
+  color: var(--sitamco-input-placeholder);
 }
 
 [data-bs-theme="dark"] .modern-close-btn {
-  background: rgba(59, 130, 246, 0.1);
-  border-color: rgba(59, 130, 246, 0.2);
-  color: rgb(156, 163, 175);
+  background: var(--sitamco-hover-bg);
+  border-color: var(--sitamco-border-medium);
+  color: var(--sitamco-text-secondary);
 }
 
 [data-bs-theme="dark"] .modern-forgot-link {
-  color: rgb(156, 163, 175);
+  color: var(--sitamco-text-secondary);
 }
 
 [data-bs-theme="dark"] .modern-forgot-link:hover {
-  color: rgb(59, 130, 246);
-  background: rgba(59, 130, 246, 0.1);
+  color: var(--sitamco-primary);
+  background: var(--sitamco-hover-bg);
 }
 
 [data-bs-theme="dark"] .modern-error-alert {
   background: rgba(239, 68, 68, 0.1);
   border-color: rgba(239, 68, 68, 0.3);
-  color: rgb(248, 113, 113);
+  color: var(--sitamco-danger);
 }
 
 /* Mobile responsive */
