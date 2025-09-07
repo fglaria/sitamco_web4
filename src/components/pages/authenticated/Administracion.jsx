@@ -11,13 +11,13 @@ import './MiSitamco.css'
  * @param {Function} props.navigateTo - Navigation handler
  * @param {string} props.currentPage - Current active page
  * @param {boolean} props.isAuthenticated - Authentication status
+ * @param {string} props.selectedSubSection - Current selected subsection
  * @returns {JSX.Element} Administracion JSX element
  */
-function Administracion({ onLogout, navigateTo, currentPage, isAuthenticated }) {
-  const [selectedSection, setSelectedSection] = useState('miembros')
+function Administracion({ onLogout, navigateTo, currentPage, isAuthenticated, selectedSubSection }) {
 
   const renderContent = () => {
-    switch (selectedSection) {
+    switch (selectedSubSection) {
       case 'miembros':
         return <Miembros onLogout={onLogout} />
       case 'roles':
@@ -29,47 +29,7 @@ function Administracion({ onLogout, navigateTo, currentPage, isAuthenticated }) 
     }
   }
 
-  return (
-    <div className="dashboard-layout">
-      {/* Main Dashboard Content */}
-      <div className="dashboard-container">
-        {/* Left Sidebar */}
-        <div className="dashboard-sidebar">
-          <ul className="nav flex-column">
-            <li className="nav-item">
-              <button 
-                className={`nav-link btn btn-link text-left ${selectedSection === 'miembros' ? 'active' : ''}`}
-                onClick={() => setSelectedSection('miembros')}
-              >
-                Miembros
-              </button>
-            </li>
-            <li className="nav-item">
-              <button 
-                className={`nav-link btn btn-link text-left ${selectedSection === 'roles' ? 'active' : ''}`}
-                onClick={() => setSelectedSection('roles')}
-              >
-                Roles
-              </button>
-            </li>
-            <li className="nav-item">
-              <button 
-                className={`nav-link btn btn-link text-left ${selectedSection === 'permisos' ? 'active' : ''}`}
-                onClick={() => setSelectedSection('permisos')}
-              >
-                Permisos
-              </button>
-            </li>
-          </ul>
-        </div>
-        
-        {/* Right Content Area */}
-        <div className="dashboard-content-area">
-          {renderContent()}
-        </div>
-      </div>
-    </div>
-  )
+  return renderContent()
 }
 
 export default Administracion

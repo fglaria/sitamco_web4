@@ -70,7 +70,31 @@ function Miembros({ onLogout }) {
   }
 
   return (
-    <div className="dashboard-content">
+    <div 
+      className="dashboard-content miembros-container"
+      style={{
+        height: '100%',
+        overflowY: 'auto',
+        overflowX: 'hidden',
+        scrollbarWidth: 'thin',
+        scrollbarColor: 'var(--sitamco-border-medium) transparent'
+      }}
+    >
+      <style>{`
+        .miembros-container::-webkit-scrollbar {
+          width: 6px;
+        }
+        .miembros-container::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .miembros-container::-webkit-scrollbar-thumb {
+          background: var(--sitamco-border-medium);
+          border-radius: 3px;
+        }
+        .miembros-container::-webkit-scrollbar-thumb:hover {
+          background: var(--sitamco-primary);
+        }
+      `}</style>
       <h2>Gestión de Miembros</h2>
       <div className="welcome-content">
         <p>Administra los miembros del sindicato.</p>
@@ -98,43 +122,85 @@ function Miembros({ onLogout }) {
         {!loading && !error && users.length > 0 && (
           <div className="row">
             <div className="col-12">
-              <div className="card">
-                <div className="card-header d-flex justify-content-between align-items-center">
-                  <h5 className="mb-0">Miembros Registrados ({users.length})</h5>
+              <div className="card bg-sitamco-surface border-sitamco-medium elevation-2">
+                <div className="card-header bg-sitamco-secondary border-sitamco-light d-flex justify-content-between align-items-center">
+                  <h5 className="mb-0 text-sitamco-primary">Miembros Registrados ({users.length})</h5>
                 </div>
                 <div className="card-body p-0">
                   <div className="table-responsive">
                     <table className="table table-hover mb-0">
-                      <thead className="table-light">
+                      <thead style={{
+                        backgroundColor: 'var(--sitamco-bg-secondary)',
+                        borderBottom: '1px solid var(--sitamco-border-medium)'
+                      }}>
                         <tr>
-                          <th>Nombre Completo</th>
-                          <th>Email</th>
-                          <th>RUN</th>
-                          <th>Estado</th>
-                          <th>Ingreso</th>
+                          <th style={{
+                            color: 'var(--sitamco-text-primary)',
+                            fontWeight: '600',
+                            padding: '1rem'
+                          }}>Nombre Completo</th>
+                          <th style={{
+                            color: 'var(--sitamco-text-primary)',
+                            fontWeight: '600',
+                            padding: '1rem'
+                          }}>Email</th>
+                          <th style={{
+                            color: 'var(--sitamco-text-primary)',
+                            fontWeight: '600',
+                            padding: '1rem'
+                          }}>RUN</th>
+                          <th style={{
+                            color: 'var(--sitamco-text-primary)',
+                            fontWeight: '600',
+                            padding: '1rem'
+                          }}>Estado</th>
+                          <th style={{
+                            color: 'var(--sitamco-text-primary)',
+                            fontWeight: '600',
+                            padding: '1rem'
+                          }}>Ingreso</th>
                         </tr>
                       </thead>
                       <tbody>
                         {users.map(user => (
-                          <tr key={user.id}>
-                            <td>
+                          <tr key={user.id} style={{ 
+                            color: 'var(--sitamco-text-primary)',
+                            borderBottom: '1px solid var(--sitamco-border-light)'
+                          }}>
+                            <td style={{ padding: '1rem' }}>
                               <div className="user-info">
-                                <strong>
+                                <strong style={{ color: 'var(--sitamco-text-primary)' }}>
                                   {[user.first_name, user.middle_name, user.last_name1, user.last_name2]
                                     .filter(Boolean)
                                     .join(' ')}
                                 </strong>
                                 {user.phone && (
-                                  <div className="text-muted small">{user.phone}</div>
+                                  <div style={{ 
+                                    color: 'var(--sitamco-text-secondary)', 
+                                    fontSize: '0.875rem',
+                                    marginTop: '0.25rem'
+                                  }}>{user.phone}</div>
                                 )}
                               </div>
                             </td>
-                            <td>{user.email}</td>
-                            <td>
-                              <code className="text-muted">{user.run || 'No especificado'}</code>
+                            <td style={{ 
+                              padding: '1rem', 
+                              color: 'var(--sitamco-text-primary)' 
+                            }}>{user.email}</td>
+                            <td style={{ padding: '1rem' }}>
+                              <code style={{ 
+                                color: 'var(--sitamco-text-secondary)',
+                                backgroundColor: 'var(--sitamco-bg-secondary)',
+                                padding: '0.25rem 0.5rem',
+                                borderRadius: '0.25rem'
+                              }}>{user.run || 'No especificado'}</code>
                             </td>
-                            <td>{getStatusBadge(user)}</td>
-                            <td className="text-muted small">{formatDate(user.signed_at)}</td>
+                            <td style={{ padding: '1rem' }}>{getStatusBadge(user)}</td>
+                            <td style={{ 
+                              padding: '1rem', 
+                              color: 'var(--sitamco-text-secondary)', 
+                              fontSize: '0.875rem' 
+                            }}>{formatDate(user.signed_at)}</td>
                           </tr>
                         ))}
                       </tbody>

@@ -1,9 +1,12 @@
 /* Enhanced Private Site with Theme Variables */
 
 .private-site {
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--sitamco-bg-primary);
   color: var(--sitamco-text-primary);
+  overflow: hidden;
 }
 
 /* Enhanced Private Header */
@@ -242,7 +245,90 @@
 
 /* Content Area */
 .private-site-content {
-  /* Remove any default margins/padding since child components handle their own layout */
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Main Layout with Lateral Menu */
+.private-main-layout {
+  display: flex;
+  height: 100%;
+}
+
+/* Slimmer Lateral Menu */
+.private-lateral-menu {
+  width: 200px;
+  min-width: 200px;
+  background-color: var(--sitamco-bg-secondary);
+  border-right: 1px solid var(--sitamco-border-light);
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+.private-lateral-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.25rem;
+  background: none;
+  border: none;
+  color: var(--sitamco-text-secondary);
+  text-align: left;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.private-lateral-btn:hover {
+  background-color: var(--sitamco-hover-bg);
+  color: var(--sitamco-primary);
+  transform: translateX(2px);
+}
+
+.private-lateral-btn.active {
+  background-color: var(--sitamco-primary-light);
+  color: var(--sitamco-primary);
+  font-weight: 600;
+}
+
+.private-lateral-btn svg {
+  min-width: 16px;
+  margin-right: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.private-lateral-label {
+  opacity: 1;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Content Area */
+.private-content-area {
+  flex: 1;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+/* Custom scrollbar for webkit browsers */
+.private-site-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.private-site-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.private-site-content::-webkit-scrollbar-thumb {
+  background: var(--sitamco-border-medium);
+  border-radius: 3px;
+}
+
+.private-site-content::-webkit-scrollbar-thumb:hover {
+  background: var(--sitamco-primary);
 }
 
 
@@ -306,6 +392,48 @@
   
   .private-user-btn::after {
     content: 'User Menu';
+  }
+  
+  /* Mobile lateral menu */
+  .private-main-layout {
+    flex-direction: column;
+  }
+  
+  .private-lateral-menu {
+    width: 100%;
+    min-width: 100%;
+    background-color: var(--sitamco-bg-secondary);
+    border-right: none;
+    border-bottom: 1px solid var(--sitamco-border-light);
+    padding: 0.5rem;
+    max-height: 60px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  .private-lateral-menu:hover {
+    width: 100%;
+    max-height: auto;
+  }
+  
+  .private-lateral-menu .nav {
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: flex-start;
+  }
+  
+  .private-lateral-btn {
+    min-width: 50px;
+    padding: 0.5rem;
+    margin-bottom: 0;
+  }
+  
+  .private-lateral-label {
+    display: none;
+  }
+  
+  .private-content-area {
+    padding: 1rem;
   }
 }
 

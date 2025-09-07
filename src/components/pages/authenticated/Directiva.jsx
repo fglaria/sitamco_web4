@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import Miembros from './administrator/Miembros.jsx'
 import './MiSitamco.css'
 
 /**
@@ -7,32 +9,21 @@ import './MiSitamco.css'
  * @param {Function} props.navigateTo - Navigation handler
  * @param {string} props.currentPage - Current active page
  * @param {boolean} props.isAuthenticated - Authentication status
+ * @param {string} props.selectedSubSection - Current selected subsection
  * @returns {JSX.Element} Directiva JSX element
  */
-function Directiva({ onLogout, navigateTo, currentPage, isAuthenticated }) {
-  return (
-    <div className="dashboard-layout">
-      {/* Main Dashboard Content */}
-      <div className="dashboard-container">
-        {/* Left Sidebar */}
-        <div className="dashboard-sidebar">
-          <ul className="nav flex-column">
-            {/* Empty menu for now */}
-          </ul>
-        </div>
-        
-        {/* Right Content Area */}
-        <div className="dashboard-content-area">
-          <div className="dashboard-content">
-            <h2>Directiva</h2>
-            <div className="welcome-content">
-              <p>Sección de directiva - contenido en desarrollo.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+function Directiva({ onLogout, navigateTo, currentPage, isAuthenticated, selectedSubSection }) {
+
+  const renderContent = () => {
+    switch (selectedSubSection) {
+      case 'miembros':
+        return <Miembros onLogout={onLogout} />
+      default:
+        return <Miembros onLogout={onLogout} />
+    }
+  }
+
+  return renderContent()
 }
 
 export default Directiva
