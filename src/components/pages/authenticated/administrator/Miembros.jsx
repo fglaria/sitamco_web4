@@ -176,7 +176,7 @@ function Miembros({ onLogout }) {
                       }}>
                         <tr>
                           <th style={{
-                            color: 'var(--sitamco-text-inverse)',
+                            color: 'var(--sitamco-text-primary)',
                             fontWeight: '700',
                             padding: '0.875rem 1rem',
                             width: '25%',
@@ -187,7 +187,7 @@ function Miembros({ onLogout }) {
                             borderBottom: 'none'
                           }}>Nombre Completo</th>
                           <th style={{
-                            color: 'var(--sitamco-text-inverse)',
+                            color: 'var(--sitamco-text-primary)',
                             fontWeight: '700',
                             padding: '0.875rem 1rem',
                             width: '20%',
@@ -198,7 +198,7 @@ function Miembros({ onLogout }) {
                             borderBottom: 'none'
                           }}>Email</th>
                           <th style={{
-                            color: 'var(--sitamco-text-inverse)',
+                            color: 'var(--sitamco-text-primary)',
                             fontWeight: '700',
                             padding: '0.875rem 1rem',
                             width: '12%',
@@ -209,7 +209,7 @@ function Miembros({ onLogout }) {
                             borderBottom: 'none'
                           }}>Teléfono</th>
                           <th style={{
-                            color: 'var(--sitamco-text-inverse)',
+                            color: 'var(--sitamco-text-primary)',
                             fontWeight: '700',
                             padding: '0.875rem 1rem',
                             width: '12%',
@@ -220,7 +220,7 @@ function Miembros({ onLogout }) {
                             borderBottom: 'none'
                           }}>RUN</th>
                           <th style={{
-                            color: 'var(--sitamco-text-inverse)',
+                            color: 'var(--sitamco-text-primary)',
                             fontWeight: '700',
                             padding: '0.875rem 1rem',
                             width: '10%',
@@ -232,7 +232,7 @@ function Miembros({ onLogout }) {
                             borderBottom: 'none'
                           }}>Vigente</th>
                           <th style={{
-                            color: 'var(--sitamco-text-inverse)',
+                            color: 'var(--sitamco-text-primary)',
                             fontWeight: '700',
                             padding: '0.875rem 1rem',
                             width: '11%',
