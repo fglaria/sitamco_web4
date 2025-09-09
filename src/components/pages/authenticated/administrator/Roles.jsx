@@ -14,6 +14,18 @@ function Roles({ onLogout }) {
   const [roles, setRoles] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [selectedRole, setSelectedRole] = useState(null)
+  const [showModal, setShowModal] = useState(false)
+
+  const handleRowClick = (role) => {
+    setSelectedRole(role)
+    setShowModal(true)
+  }
+
+  const closeModal = () => {
+    setShowModal(false)
+    setSelectedRole(null)
+  }
 
   useEffect(() => {
     const fetchRoles = async () => {
@@ -83,14 +95,17 @@ function Roles({ onLogout }) {
                   <th>Nombre</th>
                   <th>Descripción</th>
                   <th>Estado</th>
-                  <th>Creado</th>
-                  <th>Actualizado</th>
                 </tr>
               </thead>
               <tbody>
                 {roles.map(role => (
-                  <tr key={role.id} className="roles-table-row">
-                    <td className="roles-table-cell">{role.id}</td>
+                  <tr 
+                    key={role.id} 
+                    className="roles-table-row clickable-row" 
+                    onClick={() => handleRowClick(role)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <td className="roles-table-cell"><strong>{role.id}</strong></td>
                     <td className="roles-table-cell">
                       <strong>{role.name}</strong>
                     </td>
@@ -100,12 +115,82 @@ function Roles({ onLogout }) {
                         {role.active ? 'Activo' : 'Inactivo'}
                       </span>
                     </td>
-                    <td className="roles-table-cell">{role.created_at || '-'}</td>
-                    <td className="roles-table-cell">{role.updated_at || '-'}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+          </div>
+        )}
+
+        {/* Modal */}
+        {showModal && selectedRole && (
+          <div className="modal show" style={{ display: 'block' }} onClick={closeModal}>
+            <div className="modal-dialog modal-lg" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Detalles del Rol</h5>
+                  <button 
+                    type="button" 
+                    className="btn-close" 
+                    onClick={closeModal}
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <strong>ID:</strong>
+                      <p className="text-muted">{selectedRole.id}</p>
+                    </div>
+                    <div className="col-md-6">
+                      <strong>Nombre:</strong>
+                      <p>{selectedRole.name}</p>
+                    </div>
+                    <div className="col-12">
+                      <strong>Descripción:</strong>
+                      <p>{selectedRole.description || 'Sin descripción'}</p>
+                    </div>
+                    <div className="col-md-6">
+                      <strong>Estado:</strong>
+                      <p>
+                        <span className={`badge ${selectedRole.active ? 'bg-success' : 'bg-secondary'} text-white`}>
+                          {selectedRole.active ? 'Activo' : 'Inactivo'}
+                        </span>
+                      </p>
+                    </div>
+                    {selectedRole.created_at && (
+                      <div className="col-md-6">
+                        <strong>Creado:</strong>
+                        <p className="text-muted">{selectedRole.created_at}</p>
+                      </div>
+                    )}
+                    {selectedRole.updated_at && (
+                      <div className="col-md-6">
+                        <strong>Actualizado:</strong>
+                        <p className="text-muted">{selectedRole.updated_at}</p>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Show all other properties */}
+                  <hr />
+                  <h6>Todos los datos:</h6>
+                  <pre className="p-3 rounded" style={{ 
+                    fontSize: '0.85rem',
+                    backgroundColor: 'var(--sitamco-bg-secondary)',
+                    color: 'var(--sitamco-text-primary)',
+                    border: '1px solid var(--sitamco-border-medium)'
+                  }}>
+                    {JSON.stringify(selectedRole, null, 2)}
+                  </pre>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" onClick={closeModal}>
+                    Cerrar
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>

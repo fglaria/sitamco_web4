@@ -14,6 +14,18 @@ function Miembros({ onLogout }) {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [selectedUser, setSelectedUser] = useState(null)
+  const [showModal, setShowModal] = useState(false)
+
+  const handleRowClick = (user) => {
+    setSelectedUser(user)
+    setShowModal(true)
+  }
+
+  const closeModal = () => {
+    setShowModal(false)
+    setSelectedUser(null)
+  }
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -108,12 +120,16 @@ function Miembros({ onLogout }) {
                           <th className="th-phone">Teléfono</th>
                           <th className="th-run">RUN</th>
                           <th className="th-status">Vigente</th>
-                          <th className="th-date">Ingreso</th>
                         </tr>
                       </thead>
                       <tbody>
                         {users.map(user => (
-                          <tr key={user.id} className="miembros-table-row">
+                          <tr 
+                            key={user.id} 
+                            className="miembros-table-row clickable-row" 
+                            onClick={() => handleRowClick(user)}
+                            style={{ cursor: 'pointer' }}
+                          >
                             <td className="miembros-table-cell cell-name">
                               <strong>
                                 {[user.first_name, user.middle_name, user.last_name1, user.last_name2]
@@ -127,11 +143,104 @@ function Miembros({ onLogout }) {
                               <code>{user.run || 'N/A'}</code>
                             </td>
                             <td className="miembros-table-cell cell-status">{getStatusBadge(user)}</td>
-                            <td className="miembros-table-cell cell-date">{formatDate(user.signed_at)}</td>
                           </tr>
                         ))}
                       </tbody>
                     </table>
+            </div>
+          )}
+
+          {/* Modal */}
+          {showModal && selectedUser && (
+            <div className="modal show" style={{ display: 'block' }} onClick={closeModal}>
+              <div className="modal-dialog modal-lg" onClick={(e) => e.stopPropagation()}>
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title">Detalles del Miembro</h5>
+                    <button 
+                      type="button" 
+                      className="btn-close" 
+                      onClick={closeModal}
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    <div className="row">
+                      <div className="col-md-6">
+                        <strong>ID:</strong>
+                        <p className="text-muted">{selectedUser.id}</p>
+                      </div>
+                      <div className="col-md-6">
+                        <strong>Email:</strong>
+                        <p>{selectedUser.email}</p>
+                      </div>
+                      <div className="col-md-6">
+                        <strong>Nombres:</strong>
+                        <p>{selectedUser.first_name} {selectedUser.middle_name || ''}</p>
+                      </div>
+                      <div className="col-md-6">
+                        <strong>Apellidos:</strong>
+                        <p>{selectedUser.last_name1} {selectedUser.last_name2 || ''}</p>
+                      </div>
+                      <div className="col-md-6">
+                        <strong>RUN:</strong>
+                        <p><code>{selectedUser.run || 'No disponible'}</code></p>
+                      </div>
+                      <div className="col-md-6">
+                        <strong>Teléfono:</strong>
+                        <p>{selectedUser.phone || 'No disponible'}</p>
+                      </div>
+                      <div className="col-md-6">
+                        <strong>Estado:</strong>
+                        <p>{getStatusBadge(selectedUser)}</p>
+                      </div>
+                      <div className="col-md-6">
+                        <strong>Activo:</strong>
+                        <p>
+                          <span className={`badge ${selectedUser.active ? 'bg-success' : 'bg-danger'} text-white`}>
+                            {selectedUser.active ? 'Sí' : 'No'}
+                          </span>
+                        </p>
+                      </div>
+                      {selectedUser.signed_at && (
+                        <div className="col-md-6">
+                          <strong>Fecha de Ingreso:</strong>
+                          <p className="text-muted">{formatDate(selectedUser.signed_at)}</p>
+                        </div>
+                      )}
+                      {selectedUser.created_at && (
+                        <div className="col-md-6">
+                          <strong>Creado:</strong>
+                          <p className="text-muted">{selectedUser.created_at}</p>
+                        </div>
+                      )}
+                      {selectedUser.updated_at && (
+                        <div className="col-md-6">
+                          <strong>Actualizado:</strong>
+                          <p className="text-muted">{selectedUser.updated_at}</p>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Show all other properties */}
+                    <hr />
+                    <h6>Todos los datos:</h6>
+                    <pre className="p-3 rounded" style={{ 
+                      fontSize: '0.85rem',
+                      backgroundColor: 'var(--sitamco-bg-secondary)',
+                      color: 'var(--sitamco-text-primary)',
+                      border: '1px solid var(--sitamco-border-medium)'
+                    }}>
+                      {JSON.stringify(selectedUser, null, 2)}
+                    </pre>
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" onClick={closeModal}>
+                      Cerrar
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
       </div>

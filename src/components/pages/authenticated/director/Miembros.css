@@ -168,3 +168,16 @@
   align-items: center;
   min-height: 200px;
 }
+
+.clickable-row {
+  transition: all 0.2s ease;
+}
+
+.clickable-row:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(154, 166, 178, 0.15);
+}
+
+[data-bs-theme="dark"] .clickable-row:hover {
+  box-shadow: 0 2px 8px rgba(236, 223, 204, 0.15);
+}
