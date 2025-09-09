@@ -4,7 +4,7 @@
  */
 
 import { apiConfig, appConfig } from '../config.js'
-import { apiEndpoints } from '../constants/apiEndpoints.js'
+import * as apiEndpoints from '../constants/apiEndpoints.js'
 
 const { headers, timeout } = apiConfig
 const { isDevelopment } = appConfig
@@ -17,7 +17,7 @@ const { isDevelopment } = appConfig
  */
 export const loginUser = async (username, password) => {
   try {
-    const response = await fetch(apiEndpoints.AUTH.LOGIN, {
+    const response = await fetch(apiEndpoints.AUTH_LOGIN, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({
@@ -64,7 +64,7 @@ export const loginUser = async (username, password) => {
  */
 export const validateToken = async (token) => {
   try {
-    const response = await fetch(apiEndpoints.AUTH.VALIDATE, {
+    const response = await fetch(apiEndpoints.AUTH_VALIDATE, {
       method: 'POST',
       headers: {
         ...headers,
@@ -87,7 +87,7 @@ export const validateToken = async (token) => {
  */
 export const getUserData = async (token) => {
   try {
-    const response = await fetch(apiEndpoints.AUTH.ME, {
+    const response = await fetch(apiEndpoints.AUTH_ME, {
       method: 'GET',
       headers: {
         ...headers,
@@ -132,7 +132,7 @@ export const getUserData = async (token) => {
  */
 export const changePassword = async (token, currentPassword, newPassword) => {
   try {
-    const response = await fetch(apiEndpoints.AUTH.CHANGE_PASSWORD, {
+    const response = await fetch(apiEndpoints.AUTH_CHANGE_PASSWORD, {
       method: 'POST',
       headers: {
         ...headers,
@@ -179,7 +179,7 @@ export const changePassword = async (token, currentPassword, newPassword) => {
  */
 export const getAllUsers = async (token) => {
   try {
-    const response = await fetch(apiEndpoints.USER.GET, {
+    const response = await fetch(apiEndpoints.USERS, {
       method: 'GET',
       headers: {
         ...headers,
@@ -223,7 +223,7 @@ export const getAllUsers = async (token) => {
  */
 export const logoutUser = async (token) => {
   try {
-    await fetch(apiEndpoints.AUTH.LOGOUT, {
+    await fetch(apiEndpoints.AUTH_LOGOUT, {
       method: 'POST',
       headers: {
         ...headers,

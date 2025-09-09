@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Miembros from './administrator/Miembros.jsx'
+import Miembros from './director/Miembros.jsx'
 import './MiSitamco.css'
 
 /**
