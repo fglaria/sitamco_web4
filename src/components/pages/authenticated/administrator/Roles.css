@@ -1,0 +1,110 @@
+/* Roles Component Styles */
+
+.roles-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 0;
+}
+
+.roles-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.roles-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.roles-container::-webkit-scrollbar-thumb {
+  background: var(--sitamco-border-medium);
+  border-radius: 3px;
+}
+
+.roles-container::-webkit-scrollbar-thumb:hover {
+  background: var(--sitamco-primary);
+}
+
+.roles-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sitamco-border-medium) transparent;
+}
+
+.roles-table-container {
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sitamco-border-medium) transparent;
+  background: var(--sitamco-surface);
+  border: 1px solid var(--sitamco-border-medium);
+  border-radius: 8px;
+}
+
+.roles-table-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.roles-table-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.roles-table-container::-webkit-scrollbar-thumb {
+  background: var(--sitamco-border-medium);
+  border-radius: 3px;
+}
+
+.roles-table-container::-webkit-scrollbar-thumb:hover {
+  background: var(--sitamco-primary);
+}
+
+.roles-table {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+.roles-table-header {
+  background-color: var(--sitamco-text-secondary);
+  border-bottom: 2px solid var(--sitamco-text-secondary);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.roles-table-header th {
+  color: var(--sitamco-text-primary);
+  font-weight: 700;
+  padding: 0.875rem 1rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: none;
+}
+
+.roles-table-row {
+  color: var(--sitamco-text-primary);
+  border-bottom: 1px solid var(--sitamco-border-light);
+}
+
+.roles-table-cell {
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+}
+
+.roles-table-cell strong {
+  color: var(--sitamco-text-primary);
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.roles-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}

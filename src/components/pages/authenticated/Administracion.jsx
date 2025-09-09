@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Miembros from './director/Miembros.jsx'
 import Roles from './administrator/Roles.jsx'
 import Permisos from './administrator/Permisos.jsx'
 import './MiSitamco.css'
@@ -18,14 +17,12 @@ function Administracion({ onLogout, navigateTo, currentPage, isAuthenticated, se
 
   const renderContent = () => {
     switch (selectedSubSection) {
-      case 'miembros':
-        return <Miembros onLogout={onLogout} />
       case 'roles':
         return <Roles onLogout={onLogout} />
       case 'permisos':
         return <Permisos onLogout={onLogout} />
       default:
-        return <Miembros onLogout={onLogout} />
+        return <Roles onLogout={onLogout} />
     }
   }
 

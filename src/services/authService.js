@@ -172,49 +172,6 @@ export const changePassword = async (token, currentPassword, newPassword) => {
   }
 }
 
-/**
- * Get all users (Admin only)
- * @param {string} token - Authentication token
- * @returns {Promise<Object>} Users list response
- */
-export const getAllUsers = async (token) => {
-  try {
-    const response = await fetch(apiEndpoints.USERS, {
-      method: 'GET',
-      headers: {
-        ...headers,
-        'Authorization': `Bearer ${token}`
-      },
-      signal: AbortSignal.timeout(timeout)
-    })
-
-    const data = await response.json()
-
-    if (!response.ok) {
-      throw new Error(data.message || `HTTP error! status: ${response.status}`)
-    }
-
-    return {
-      success: true,
-      users: data.users || data,
-      message: data.message || 'Users retrieved successfully'
-    }
-  } catch (error) {
-    if (error.name === 'TimeoutError') {
-      let message = 'Request timeout. Please try again.'
-      message = isDevelopment ? `${message} (${error})` : message
-      throw new Error(message)
-    }
-    
-    if (error.name === 'TypeError' && error.message.includes('fetch')) {
-      let message = 'Unable to connect to server. Please check your connection.'
-      message = isDevelopment ? `${message} (${error})` : message
-      throw new Error(message)
-    }
-
-    throw new Error(error.message || 'Failed to retrieve users')
-  }
-}
 
 /**
  * Logout user (if API endpoint exists)

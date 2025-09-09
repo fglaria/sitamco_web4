@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getAllUsers } from '../../../../services/authService.js'
+import { getAllUsers } from '../../../../services/userService.js'
 import { authConfig } from '../../../../config.js'
 import LoadingSpinner from '../../../ui/LoadingSpinner.jsx'
 import './Miembros.css'

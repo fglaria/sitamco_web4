@@ -18,7 +18,7 @@ export const USER_ROLE_BY_ID = (roleId) => { return `${USER_ROLE}${roleId}` }
 export const USER_PERMISSION = `${USERS}permission/`
 export const USER_PERMISSION_BY_NAME = (permissionName) => { return `${USER_PERMISSION}${permissionName}` }
 
-export const ROLES = `${baseUrl}/roles/`
+export const ROLES = `${baseUrl}/role/`
 export const ROLE = (role_id) => { return `${ROLES}${role_id}` }
 
 export const PERMISSIONS = `${baseUrl}/permission/`
