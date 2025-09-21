@@ -45,9 +45,9 @@
 }
 
 [data-bs-theme="dark"] .permisos-table-container {
-  background: #181C14;
-  border-color: #3C3D37;
-  box-shadow: 0 2px 4px rgba(105, 117, 101, 0.15);
+  background: #352F44;
+  border-color: #5C5470;
+  box-shadow: 0 2px 4px rgba(185, 180, 199, 0.15);
 }
 
 .permisos-table-container::-webkit-scrollbar {
@@ -84,9 +84,9 @@
 }
 
 [data-bs-theme="dark"] .permisos-table-header {
-  background: #697565;
-  border-bottom-color: #ECDFCC;
-  box-shadow: 0 1px 3px rgba(236, 223, 204, 0.2);
+  background: #B9B4C7;
+  border-bottom-color: #FAF0E6;
+  box-shadow: 0 1px 3px rgba(250, 240, 230, 0.2);
 }
 
 .permisos-table-header th {
@@ -119,20 +119,20 @@
 }
 
 [data-bs-theme="dark"] .permisos-table-row {
-  border-bottom-color: #697565;
+  border-bottom-color: #B9B4C7;
 }
 
 [data-bs-theme="dark"] .permisos-table-row:nth-child(even) {
-  background-color: #3C3D37;
+  background-color: #5C5470;
 }
 
 [data-bs-theme="dark"] .permisos-table-row:nth-child(4n+1) {
-  background-color: rgba(236, 223, 204, 0.05);
+  background-color: rgba(250, 240, 230, 0.05);
 }
 
 [data-bs-theme="dark"] .permisos-table-row:hover {
-  background-color: rgba(105, 117, 101, 0.3);
-  border-color: #697565;
+  background-color: rgba(185, 180, 199, 0.3);
+  border-color: #B9B4C7;
 }
 
 .permisos-table-cell {
@@ -158,13 +158,13 @@
 }
 
 [data-bs-theme="dark"] .permisos-table-cell strong {
-  background-color: rgba(236, 223, 204, 0.15);
-  color: #ECDFCC;
+  background-color: rgba(250, 240, 230, 0.15);
+  color: #FAF0E6;
 }
 
 [data-bs-theme="dark"] .permisos-table-cell:first-child strong {
-  background-color: rgba(60, 61, 55, 0.8);
-  color: #697565;
+  background-color: rgba(92, 84, 112, 0.8);
+  color: #B9B4C7;
 }
 
 .permisos-table-cell code {
@@ -177,8 +177,8 @@
 }
 
 [data-bs-theme="dark"] .permisos-table-cell code {
-  color: #697565;
-  background-color: rgba(60, 61, 55, 0.6);
+  color: #B9B4C7;
+  background-color: rgba(92, 84, 112, 0.6);
 }
 
 .permisos-loading {
@@ -198,5 +198,5 @@
 }
 
 [data-bs-theme="dark"] .clickable-row:hover {
-  box-shadow: 0 2px 8px rgba(236, 223, 204, 0.15);
+  box-shadow: 0 2px 8px rgba(250, 240, 230, 0.15);
 }
