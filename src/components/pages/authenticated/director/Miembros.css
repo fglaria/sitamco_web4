@@ -62,9 +62,11 @@
 }
 
 .miembros-table {
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 0.85rem;
+  line-height: 1.3;
   margin-bottom: 0;
+  table-layout: fixed;
+  width: 100%;
 }
 
 .miembros-table-header {
@@ -86,29 +88,36 @@
   border-bottom: none;
 }
 
+.miembros-table-header .th-id {
+  width: 8%;
+  min-width: 60px;
+  text-align: center;
+}
+
 .miembros-table-header .th-name {
-  width: 25%;
+  width: 30%;
   min-width: 180px;
 }
 
 .miembros-table-header .th-email {
-  width: 20%;
+  width: 25%;
   min-width: 160px;
 }
 
 .miembros-table-header .th-phone {
-  width: 12%;
-  min-width: 110px;
+  width: 15%;
+  min-width: 120px;
 }
 
-.miembros-table-header .th-run {
-  width: 12%;
-  min-width: 100px;
+.miembros-table-header .th-active {
+  width: 10%;
+  min-width: 80px;
+  text-align: center;
 }
 
 .miembros-table-header .th-status {
-  width: 10%;
-  min-width: 80px;
+  width: 12%;
+  min-width: 100px;
   text-align: center;
 }
 
@@ -123,20 +132,31 @@
 }
 
 .miembros-table-cell {
-  padding: 0.75rem 1rem;
+  padding: 0.6rem 0.8rem;
   vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.miembros-table-cell.cell-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .miembros-table-cell.cell-name strong {
   color: var(--sitamco-text-primary);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.3;
 }
 
 .miembros-table-cell.cell-email {
   color: var(--sitamco-text-primary);
-  font-size: 0.85rem;
-  word-break: break-word;
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .miembros-table-cell.cell-phone {
@@ -144,17 +164,24 @@
   font-size: 0.85rem;
 }
 
-.miembros-table-cell.cell-run code {
+.miembros-table-cell.cell-id {
+  text-align: center;
   color: var(--sitamco-text-secondary);
-  background-color: var(--sitamco-bg-secondary);
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.25rem;
   font-size: 0.8rem;
+  font-weight: 600;
   font-family: monospace;
+}
+
+.miembros-table-cell.cell-active {
+  text-align: center;
+  padding: 0.6rem 0.8rem;
+  vertical-align: middle;
 }
 
 .miembros-table-cell.cell-status {
   text-align: center;
+  padding: 0.6rem 0.8rem;
+  vertical-align: middle;
 }
 
 .miembros-table-cell.cell-date {
@@ -180,4 +207,73 @@
 
 [data-bs-theme="dark"] .clickable-row:hover {
   box-shadow: 0 2px 8px rgba(236, 223, 204, 0.15);
+}
+
+/* Responsive improvements */
+@media (max-width: 1200px) {
+  .miembros-table-header .th-name {
+    width: 30%;
+    min-width: 160px;
+  }
+  
+  .miembros-table-header .th-email {
+    width: 35%;
+    min-width: 160px;
+  }
+  
+  .miembros-table-header .th-phone {
+    width: 18%;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .miembros-table {
+    font-size: 0.8rem;
+  }
+  
+  .miembros-table-cell {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  .miembros-table-header th {
+    padding: 0.75rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .miembros-table-header .th-id {
+    width: 10%;
+    min-width: 50px;
+  }
+  
+  .miembros-table-header .th-name {
+    width: 35%;
+    min-width: 140px;
+  }
+  
+  .miembros-table-header .th-email {
+    width: 30%;
+    min-width: 140px;
+  }
+  
+  .miembros-table-header .th-phone {
+    width: 15%;
+    min-width: 80px;
+  }
+  
+  .miembros-table-header .th-status {
+    width: 10%;
+    min-width: 80px;
+  }
+}
+
+/* Sortable header styles */
+.sortable-header {
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.sortable-header:hover {
+  background-color: var(--sitamco-primary) !important;
+  color: white !important;
 }
